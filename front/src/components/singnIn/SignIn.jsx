@@ -39,7 +39,7 @@ function SignIn() {
         e.preventDefault();
         setError(false)
         try {
-            const res = await axiosInstance.post("/back/auth", {
+            const res = await axiosInstance.post("/back/auth/register", {
                 username,
                 email,
                 password,
