@@ -3,6 +3,7 @@ import axios from "axios";
 import signins from './signIn.module.scss'
 import { useHistory } from "react-router-dom";
 import { useSpring, animated } from 'react-spring'
+import { axiosInstance } from '../../../../back/config';
 
 
 function SignIn() {
@@ -38,12 +39,12 @@ function SignIn() {
         e.preventDefault();
         setError(false)
         try {
-            const res = await axios.post("http://localhost:3000/api/auth/register", {
+            const res = await axiosInstance.post("/auth", {
                 username,
                 email,
                 password,
             })
-            res.data && window.location.replace("/login")
+            // res.data && window.location.replace("/login")
         } catch (err) {
             setError(true)
         }
