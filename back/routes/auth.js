@@ -33,17 +33,18 @@ router.post("/login", async (req, res) => {
     try {
         const user = await User.findOne({ username: req.body.username });
         // user가 없거나 status(400)인 경우 
-        !user && res.status(400).json("Wrong credentials!");
+        !user && res.status(400).json({ message: false });
 
         const validated = await bcrypt.compare(req.body.password, user.password);
-        !validated && res.status(400).json("Wrong credentials!");
+        !validated && res.status(400).json({ message: false });
 
         // password를 제외한 나머지만 json으로 반환한다.
-        const { password, ...others } = user._doc;
-        res.status(200).json(others);
+        // const { password, ...others } = user._doc;
+        res.status(200).json({ message: "로그인 되었습니다!", username: req.body.username });
         // res.status(200).json(user)
     } catch (err) {
-        res.status(500).json(err);
+        // res.status(500).json(err);
+        res.status(500).json({ message: false })
     }
 });
 

@@ -4,7 +4,8 @@ import signins from './signIn.module.scss'
 import { useHistory } from "react-router-dom";
 import { useSpring, animated } from 'react-spring'
 import { axiosInstance } from '../../config';
-
+import $ from "jquery";
+import { } from "jquery.cookie";
 
 function SignIn() {
     const history = useHistory(); //페이지가 이동 되어서 useState 값을 저장하기 위해서 사용
@@ -44,6 +45,8 @@ function SignIn() {
                 email,
                 password,
             })
+            alert("회원가입이 완료되었습니다.");
+            window.location.href = "/signIn";
             // res.data && window.location.replace("/login")
         } catch (err) {
             setError(true)
@@ -69,7 +72,21 @@ function SignIn() {
     }
     const onSumbit2 = (e) => {
         e.preventDefault();
-
+        try {
+            const res = await axios.post("/back/auth/login", {
+                username,
+                password
+            });
+            // dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+            // // console.log("gimori")
+            if (res.data.message) {
+                $.cookie("login_cookie", res.data.username);
+                console.log($.cookie("login_cookie"))
+                window.location.href = "/";
+            }
+        } catch (err) {
+            dispatch({ type: "LOGIN_FAILURE" });
+        }
         // const user = {
         //     headers,
         //     username: username,
