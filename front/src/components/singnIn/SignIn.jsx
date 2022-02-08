@@ -3,7 +3,7 @@ import axios from "axios";
 import signins from './signIn.module.scss'
 import { useHistory } from "react-router-dom";
 import { useSpring, animated } from 'react-spring'
-import { axiosInstance } from '../../../../back/config';
+import { axiosInstance } from '../../config';
 
 
 function SignIn() {
