@@ -70,7 +70,7 @@ function SignIn() {
         //     })
 
     }
-    const onSumbit2 = (e) => {
+    const onSumbit2 = async (e) => {
         e.preventDefault();
         try {
             const res = await axios.post("/back/auth/login", {
@@ -85,7 +85,6 @@ function SignIn() {
                 window.location.href = "/";
             }
         } catch (err) {
-            dispatch({ type: "LOGIN_FAILURE" });
         }
         // const user = {
         //     headers,
