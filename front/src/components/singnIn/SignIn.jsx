@@ -46,7 +46,7 @@ function SignIn() {
                 password,
             })
             alert("회원가입이 완료되었습니다.");
-            window.location.href = "/signIn";
+            window.location.href = "https://passion-timer.herokuapp.com/signIn";
             // res.data && window.location.replace("/login")
         } catch (err) {
             setError(true)

@@ -14,7 +14,7 @@ function Study() {
     let total_studied = 0, prev_time, offset_time = 0;
     // Load the image model and setup the webcam
     async function init() {
-        console.log("help")
+        // console.log("help")
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
 
@@ -60,7 +60,7 @@ function Study() {
 
         if (prediction[0].className == "studying" && 0.9 < prediction[0].probability.toFixed(2)) {
             total_studied = total_studied + diff_t;
-            console.log(total_studied);
+            // console.log(total_studied);
 
             var format_t = new Date(total_studied - 32400000);
 
