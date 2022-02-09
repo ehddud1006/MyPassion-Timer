@@ -47,7 +47,7 @@ function SignIn() {
                 password,
             })
             alert("회원가입이 완료되었습니다.");
-            res.data && window.location.replace("/signIn")
+            res.data && window.location.replace("/")
             // res.data && window.location.replace("/login")
         } catch (err) {
             setError(true)
