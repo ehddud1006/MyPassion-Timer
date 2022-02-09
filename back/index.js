@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGO_URL)
 
 
 app.use(express.static('build'))
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
     res.sendFile(__dirname + '/build/index.html')
 })
 // const multer = require("multer")
@@ -55,6 +55,9 @@ app.get('/', function (req, res) {
 // const session = require("express-session");
 // const path = require("path")
 // app.use("/images", express.static(path.join(__dirname, "/images")))
+
+
+
 
 const PORT = process.env.PORT || 3000;
 
