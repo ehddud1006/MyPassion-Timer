@@ -40,6 +40,7 @@ function Study() {
     async function init() {
         // console.log("help")
         check = false
+        console.log(check)
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
 
@@ -89,13 +90,13 @@ function Study() {
 
             format_t = new Date(total_studied - 32400000);
 
-            labelContainer.childNodes[0].innerHTML = "공부 중! 현재시각 : " + cur_t.getHours() + " : " + cur_t.getMinutes() + " : " + cur_t.getSeconds();
+            labelContainer.childNodes[0].innerHTML = "공부 중! 현재시각: " + cur_t.getHours() + "시 " + cur_t.getMinutes() + "분 " + cur_t.getSeconds() + "초 ";
             // labelContainer.childNodes[1].innerHTML = "누적 공부시간 : " + total_studied.toString();
-            labelContainer.childNodes[1].innerHTML = "누적 공부시간 : " + format_t.getHours() + " : " + format_t.getMinutes() + " : " + format_t.getSeconds() + " : ";
+            labelContainer.childNodes[1].innerHTML = "누적 공부시간: " + format_t.getHours() + "시간 " + format_t.getMinutes() + "분 " + format_t.getSeconds() + "초 ";
         } else if (prediction[1].className == "playing" && 0.9 < prediction[0].probability.toFixed(2)) {
-            labelContainer.childNodes[0].innerHTML = "공부중이 아님.. 현재시각 : " + cur_t.getHours() + " : " + cur_t.getMinutes() + " : " + cur_t.getSeconds();
+            labelContainer.childNodes[0].innerHTML = "공부중이 아님.. 현재시각: " + cur_t.getHours() + "시 " + cur_t.getMinutes() + "분 " + cur_t.getSeconds() + "초 ";
         } else {
-            labelContainer.childNodes[0].innerHTML = "공부중이 아님  " + cur_t.getHours() + " : " + cur_t.getMinutes() + " : " + cur_t.getSeconds();
+            labelContainer.childNodes[0].innerHTML = "공부중이 아님.. 현재시각:  " + cur_t.getHours() + "시 " + cur_t.getMinutes() + "분 " + cur_t.getSeconds() + "초 ";
         }
     }
     console.log(check)
