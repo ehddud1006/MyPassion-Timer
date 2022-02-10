@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import * as tf from '@tensorflow/tfjs';
 import * as tmImage from '@teachablemachine/image';
 import "./study.css"
+import $ from "jquery";
+import { } from "jquery.cookie";
+
 function Study() {
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
@@ -15,9 +18,11 @@ function Study() {
     // Load the image model and setup the webcam
 
     let format_t = 0
-    let check = true
-    console.log(check)
+    // let check = true
+    // console.log(check)
+    console.log($.cookie("login_cookie"))
 
+    const [check, setCheck] = useState(true)
     async function Submit() {
         // setError(false)
         // try {
@@ -39,7 +44,7 @@ function Study() {
 
     async function init() {
         // console.log("help")
-        check = false
+        setCheck(!check)
         console.log(check)
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";

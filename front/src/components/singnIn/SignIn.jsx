@@ -40,8 +40,8 @@ function SignIn() {
         e.preventDefault();
         setError(false)
         try {
-            // const res = await axiosInstance.post("/back/auth/register", {
-            const res = await axios.post("http://localhost:3000/back/auth/register", {
+            const res = await axiosInstance.post("/back/auth/register", {
+                // const res = await axios.post("http://localhost:3000/back/auth/register", {
                 username,
                 email,
                 password,
@@ -76,8 +76,8 @@ function SignIn() {
     const onSumbit2 = async (e) => {
         e.preventDefault();
         try {
-            // const res = await axios.post("/back/auth/login", {
-            const res = await axios.post("http://localhost:3000/back/auth/login", {
+            const res = await axios.post("/back/auth/login", {
+                // const res = await axios.post("http://localhost:3000/back/auth/login", {
                 username,
                 password
             });
