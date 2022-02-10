@@ -13,8 +13,33 @@ function Study() {
     let model, webcam, labelContainer, maxPredictions;
     let total_studied = 0, prev_time, offset_time = 0;
     // Load the image model and setup the webcam
+
+    let format_t = 0
+    let check = true
+    console.log(check)
+
+    async function Submit() {
+        // setError(false)
+        // try {
+        //     // const res = await axiosInstance.post("/back/auth/register", {
+        //     const res = await axios.post("http://localhost:3000/back/auth/register", {
+        //         username,
+        //         email,
+        //         password,
+        //     })
+        //     alert("회원가입이 완료되었습니다.");
+        //     if (res.data) {
+        //         window.location.href = "/signIn"
+        //     }
+        //     // res.data && window.location.replace("/login")
+        // } catch (err) {
+        //     setError(true)
+        // }
+    }
+
     async function init() {
         // console.log("help")
+        check = false
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
 
@@ -62,17 +87,18 @@ function Study() {
             total_studied = total_studied + diff_t;
             // console.log(total_studied);
 
-            var format_t = new Date(total_studied - 32400000);
+            format_t = new Date(total_studied - 32400000);
 
-            labelContainer.childNodes[0].innerHTML = "공부중  " + cur_t.getHours() + " : " + cur_t.getMinutes() + " : " + cur_t.getSeconds();
+            labelContainer.childNodes[0].innerHTML = "공부 중! 현재시각 : " + cur_t.getHours() + " : " + cur_t.getMinutes() + " : " + cur_t.getSeconds();
             // labelContainer.childNodes[1].innerHTML = "누적 공부시간 : " + total_studied.toString();
-            labelContainer.childNodes[1].innerHTML = "누적 공부시간 : " + format_t.getHours() + "시간  " + format_t.getMinutes() + "분  " + format_t.getSeconds() + "초";
+            labelContainer.childNodes[1].innerHTML = "누적 공부시간 : " + format_t.getHours() + " : " + format_t.getMinutes() + " : " + format_t.getSeconds() + " : ";
         } else if (prediction[1].className == "playing" && 0.9 < prediction[0].probability.toFixed(2)) {
-            labelContainer.childNodes[0].innerHTML = "공부중이 아님  " + cur_t.getHours() + " : " + cur_t.getMinutes() + " : " + cur_t.getSeconds();
+            labelContainer.childNodes[0].innerHTML = "공부중이 아님.. 현재시각 : " + cur_t.getHours() + " : " + cur_t.getMinutes() + " : " + cur_t.getSeconds();
         } else {
             labelContainer.childNodes[0].innerHTML = "공부중이 아님  " + cur_t.getHours() + " : " + cur_t.getMinutes() + " : " + cur_t.getSeconds();
         }
     }
+    console.log(check)
     return (
         <div>
             <div className='passion'>
@@ -81,7 +107,10 @@ function Study() {
                 <div id="webcam-container"></div>
                 <div id="label-container"></div>
                 <div className="btngroup">
-                    <button type="button" onClick={init}>Start</button>
+                    {
+                        check ? (<button type="button" onClick={init}>Start</button>)
+                            : (<div></div>)
+                    }
                     <button type="button" onClick={init}>기록저장</button>
                 </div>
             </div>
