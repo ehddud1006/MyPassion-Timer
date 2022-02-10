@@ -64,13 +64,13 @@ function Study() {
 
             var format_t = new Date(total_studied - 32400000);
 
-            labelContainer.childNodes[0].innerHTML = "공부 잘 하고 있네  H:" + cur_t.getHours() + "M: " + cur_t.getMinutes() + "S:" + cur_t.getSeconds();
+            labelContainer.childNodes[0].innerHTML = "공부중  " + cur_t.getHours() + " : " + cur_t.getMinutes() + " : " + cur_t.getSeconds();
             // labelContainer.childNodes[1].innerHTML = "누적 공부시간 : " + total_studied.toString();
             labelContainer.childNodes[1].innerHTML = "누적 공부시간 : " + format_t.getHours() + "시간  " + format_t.getMinutes() + "분  " + format_t.getSeconds() + "초";
         } else if (prediction[1].className == "playing" && 0.9 < prediction[0].probability.toFixed(2)) {
-            labelContainer.childNodes[0].innerHTML = "공부 안하네? H: " + cur_t.getHours() + "M: " + cur_t.getMinutes() + "S:" + cur_t.getSeconds();
+            labelContainer.childNodes[0].innerHTML = "공부중이 아님  " + cur_t.getHours() + " : " + cur_t.getMinutes() + " : " + cur_t.getSeconds();
         } else {
-            labelContainer.childNodes[0].innerHTML = "뭐하는지 모르겠네  H: " + cur_t.getHours() + "M: " + cur_t.getMinutes() + "S:" + cur_t.getSeconds();
+            labelContainer.childNodes[0].innerHTML = "공부중이 아님  " + cur_t.getHours() + " : " + cur_t.getMinutes() + " : " + cur_t.getSeconds();
         }
     }
     return (
@@ -80,7 +80,10 @@ function Study() {
                 <div>그때하는 것이 경쟁력이다.</div>
                 <div id="webcam-container"></div>
                 <div id="label-container"></div>
-                <button type="button" onClick={init}>Start</button>
+                <div className="btngroup">
+                    <button type="button" onClick={init}>Start</button>
+                    <button type="button" onClick={init}>기록저장</button>
+                </div>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>

@@ -40,14 +40,16 @@ function SignIn() {
         e.preventDefault();
         setError(false)
         try {
-            const res = await axiosInstance.post("/back/auth/register", {
-                // const res = await axios.post("http://localhost:3000/back/auth/register", {
+            // const res = await axiosInstance.post("/back/auth/register", {
+            const res = await axios.post("http://localhost:3000/back/auth/register", {
                 username,
                 email,
                 password,
             })
             alert("회원가입이 완료되었습니다.");
-            res.data && window.location.replace("/signIn")
+            if (res.data) {
+                window.location.href = "/signIn"
+            }
             // res.data && window.location.replace("/login")
         } catch (err) {
             setError(true)
@@ -74,8 +76,8 @@ function SignIn() {
     const onSumbit2 = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("/back/auth/login", {
-                // const res = await axios.post("http://localhost:3000/back/auth/login", {
+            // const res = await axios.post("/back/auth/login", {
+            const res = await axios.post("http://localhost:3000/back/auth/login", {
                 username,
                 password
             });

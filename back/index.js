@@ -59,10 +59,9 @@ app.get('/*', function (req, res) {
 
 
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-    // app.listen(5000, () => {
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+app.listen(5000, () => {
     console.log("Backend is running.");
 });
 
