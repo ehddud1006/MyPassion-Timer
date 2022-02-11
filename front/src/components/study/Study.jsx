@@ -16,7 +16,7 @@ function Study() {
     const URL = "./my_model/";
 
     let model, webcam, labelContainer, maxPredictions;
-    let total_studied = 100, prev_time, offset_time = 0;
+    var total_studied = 0, prev_time, offset_time = 0;
     // Load the image model and setup the webcam
 
 
@@ -34,13 +34,14 @@ function Study() {
     // http://localhost:3000/posts/?user=kdyUpdated
     // {pathname: '/posts/', search: '?user=kdyUpdated', hash: '', state: undefined}
     useEffect(() => {
-        console.log(name)
+        // console.log(name)
         const fetchPosts = async () => {
             // const res = await axios.get("http://localhost:3000/api/posts");
             const res = await axiosInstance.post("/back/time/", {
                 // const res = await axios.post("http://localhost:3000/back/time/", {
                 username: name
             })
+            console.log("hh")
             console.log(res.data[0])
             setTime(res.data[0].time)
             setId(res.data[0]._id)
