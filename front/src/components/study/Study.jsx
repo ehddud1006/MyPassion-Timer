@@ -121,6 +121,7 @@ function Study() {
     // run the webcam image through the image model
     async function predict() {
         if (go == 0) {
+            console.log("why")
             setGo(1)
             total_studied = time
         }
