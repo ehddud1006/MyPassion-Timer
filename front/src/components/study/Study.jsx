@@ -28,7 +28,7 @@ function Study() {
     const [check, setCheck] = useState(true)
     const [time, setTime] = useState(0);
     const [id, setId] = useState("");
-    const [go, setGo] = useState(0);
+    var go = 0
     // const { search } = useLocation();
     // const { search } = useLocation()
     // console.log(search)
@@ -123,7 +123,7 @@ function Study() {
     async function predict() {
         if (go == 0) {
             console.log("why")
-            setGo(go + 1)
+            go = 1
             console.log(go)
             total_studied = time
         }
