@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/User");
+const Time = require("../models/Time");
 const bcrypt = require("bcrypt");
 
 //REGISTER
@@ -20,7 +21,13 @@ router.post("/register", async (req, res) => {
             password: hashedPass,
         });
 
+        const newTime = new Time({
+            username: req.body.username,
+
+        });
+
         const user = await newUser.save();
+        await newTime.save();
         res.status(200).json(user);
     } catch (err) {
         res.status(500).json(err);

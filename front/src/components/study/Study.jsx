@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios"
 
 import * as tf from '@tensorflow/tfjs';
 import * as tmImage from '@teachablemachine/image';
 import "./study.css"
 import $ from "jquery";
 import { } from "jquery.cookie";
+import { axiosInstance } from '../../config';
 
 function Study() {
     // More API functions here:
@@ -14,32 +16,59 @@ function Study() {
     const URL = "./my_model/";
 
     let model, webcam, labelContainer, maxPredictions;
-    let total_studied = 0, prev_time, offset_time = 0;
+    let total_studied = 100, prev_time, offset_time = 0;
     // Load the image model and setup the webcam
 
-    let format_t = 0
+
     // let check = true
     // console.log(check)
-    console.log($.cookie("login_cookie"))
-
+    var name = $.cookie("login_cookie")
+    console.log(name)
     const [check, setCheck] = useState(true)
+    const [time, setTime] = useState(0);
+    const [id, setId] = useState("");
+    // const { search } = useLocation();
+    // const { search } = useLocation()
+    // console.log(search)
+    // console.log(location)
+    // http://localhost:3000/posts/?user=kdyUpdated
+    // {pathname: '/posts/', search: '?user=kdyUpdated', hash: '', state: undefined}
+    useEffect(() => {
+        console.log(name)
+        const fetchPosts = async () => {
+            // const res = await axios.get("http://localhost:3000/api/posts");
+            const res = await axiosInstance.post("/back/back/time/", {
+                // const res = await axios.post("http://localhost:3000/back/time/", {
+                username: name
+            })
+            console.log(res.data[0])
+            setTime(res.data[0].time)
+            setId(res.data[0]._id)
+            total_studied = time
+            // console.log(res)
+            // setPosts(res.data);
+            // {data: Array(3), status: 200, statusText: 'OK', headers: {…}, config: {…}, …}
+            // config: {transitional: {…}, transformRequest: Array(1), transformResponse: Array(1), timeout: 0, adapter: ƒ, …}
+            // data: (3) [{…}, {…}, {…}]
+            // headers: {content-length: '581', content-type: 'application/json; charset=utf-8', date: 'Wed, 02 Feb 2022 21:56:18 GMT', etag: 'W/"245-nGaT93/POQnKQsl7TaP5icxjyF8"', x-powered-by: 'Express'}
+            // request: XMLHttpRequest {onreadystatechange: null, readyState: 4, timeout: 0, withCredentials: true, upload: XMLHttpRequestUpload, …}
+            // status: 200
+            // statusText: "OK"
+            // [[Prototype]]: Object
+        };
+        fetchPosts();
+    }, []);
     async function Submit() {
-        // setError(false)
-        // try {
-        //     // const res = await axiosInstance.post("/back/auth/register", {
-        //     const res = await axios.post("http://localhost:3000/back/auth/register", {
-        //         username,
-        //         email,
-        //         password,
-        //     })
-        //     alert("회원가입이 완료되었습니다.");
-        //     if (res.data) {
-        //         window.location.href = "/signIn"
-        //     }
-        //     // res.data && window.location.replace("/login")
-        // } catch (err) {
-        //     setError(true)
-        // }
+        try {
+            const res = await axiosInstance.post("/back/time/submit", {
+                // const res = await axios.put("http://localhost:3000/back/time/submit", {
+                username: name,
+                id: id,
+                time: total_studied
+            })
+            console.log(res)
+        } catch (err) {
+        }
     }
 
     async function init() {
@@ -93,7 +122,7 @@ function Study() {
             total_studied = total_studied + diff_t;
             // console.log(total_studied);
 
-            format_t = new Date(total_studied - 32400000);
+            var format_t = new Date(total_studied - 32400000);
 
             labelContainer.childNodes[0].innerHTML = "공부 중! 현재시각: " + cur_t.getHours() + "시 " + cur_t.getMinutes() + "분 " + cur_t.getSeconds() + "초 ";
             // labelContainer.childNodes[1].innerHTML = "누적 공부시간 : " + total_studied.toString();
@@ -117,7 +146,7 @@ function Study() {
                         check ? (<button type="button" onClick={init}>Start</button>)
                             : (<div></div>)
                     }
-                    <button type="button" onClick={init}>기록저장</button>
+                    <button type="button" onClick={Submit}>기록저장</button>
                 </div>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>

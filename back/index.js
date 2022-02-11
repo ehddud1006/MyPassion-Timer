@@ -19,6 +19,9 @@ app.use("/back/auth", authRoute)
 // const categoriesRoute = require("./routes/categories")
 // app.use("/api/categories", categoriesRoute)
 
+const timeRoute = require("./routes/time")
+app.use("/back/time", timeRoute)
+
 const mongoose = require("mongoose")
 // mongoose.connect('mongodb://localhost:27017/test');
 mongoose.connect(process.env.MONGO_URL)
@@ -59,9 +62,9 @@ app.get('/*', function (req, res) {
 
 
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    // app.listen(5000, () => {
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+app.listen(5000, () => {
     console.log("Backend is running.");
 });
 
