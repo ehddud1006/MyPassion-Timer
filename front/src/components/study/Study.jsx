@@ -122,7 +122,7 @@ function Study() {
     async function predict() {
         if (go == 0) {
             console.log("why")
-            setGo(1)
+            setGo(go + 1)
             console.log(go)
             total_studied = time
         }
