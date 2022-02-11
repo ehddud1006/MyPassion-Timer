@@ -123,6 +123,7 @@ function Study() {
         if (go == 0) {
             console.log("why")
             setGo(1)
+            console.log(go)
             total_studied = time
         }
         // console.log("5")
