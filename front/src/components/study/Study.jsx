@@ -46,7 +46,7 @@ function Study() {
             console.log(res.data[0].time)
             setTime(res.data[0].time)
             setId(res.data[0]._id)
-            total_studied = time
+            total_studied = res.data[0].time
             console.log("plz" + total_studied)
             // console.log(res)
             // setPosts(res.data);
