@@ -28,6 +28,7 @@ function Study() {
     const [check, setCheck] = useState(true)
     const [time, setTime] = useState(0);
     const [id, setId] = useState("");
+    const [go, setGo] = useState(0);
     // const { search } = useLocation();
     // const { search } = useLocation()
     // console.log(search)
@@ -119,6 +120,10 @@ function Study() {
 
     // run the webcam image through the image model
     async function predict() {
+        if (go == 0) {
+            setGo(1)
+            total_studied = time
+        }
         // console.log("5")
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
@@ -128,7 +133,7 @@ function Study() {
         prev_time = cur_t;
 
         if (prediction[0].className == "studying" && 0.9 < prediction[0].probability.toFixed(2)) {
-            total_studied = time + diff_t;
+            total_studied = total_studied + diff_t;
             // console.log(total_studied);
 
             var format_t = new Date(total_studied - 32400000);
