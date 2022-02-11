@@ -128,7 +128,7 @@ function Study() {
         prev_time = cur_t;
 
         if (prediction[0].className == "studying" && 0.9 < prediction[0].probability.toFixed(2)) {
-            total_studied = total_studied + diff_t;
+            total_studied = time + diff_t;
             // console.log(total_studied);
 
             var format_t = new Date(total_studied - 32400000);
