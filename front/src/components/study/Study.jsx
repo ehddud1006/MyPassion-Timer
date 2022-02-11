@@ -67,6 +67,7 @@ function Study() {
     }, []);
     async function Submit() {
         console.log("3")
+        console.log(total_studied)
         try {
             const res = await axiosInstance.put("/back/time/submit", {
                 // const res = await axios.put("http://localhost:3000/back/time/submit", {
