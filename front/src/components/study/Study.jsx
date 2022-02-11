@@ -61,7 +61,7 @@ function Study() {
     }, []);
     async function Submit() {
         try {
-            const res = await axiosInstance.post("/back/time/submit", {
+            const res = await axiosInstance.put("/back/time/submit", {
                 // const res = await axios.put("http://localhost:3000/back/time/submit", {
                 username: name,
                 id: id,
@@ -76,6 +76,7 @@ function Study() {
         // console.log("help")
         setCheck(!check)
         console.log(check)
+        console.log("total" + total_studied)
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
 
