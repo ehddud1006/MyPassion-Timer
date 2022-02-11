@@ -22,6 +22,7 @@ function Study() {
 
     // let check = true
     // console.log(check)
+    console.log("1")
     var name = $.cookie("login_cookie")
     console.log(name)
     const [check, setCheck] = useState(true)
@@ -34,6 +35,7 @@ function Study() {
     // http://localhost:3000/posts/?user=kdyUpdated
     // {pathname: '/posts/', search: '?user=kdyUpdated', hash: '', state: undefined}
     useEffect(() => {
+        console.log("2")
         // console.log(name)
         const fetchPosts = async () => {
             // const res = await axios.get("http://localhost:3000/api/posts");
@@ -62,6 +64,7 @@ function Study() {
         fetchPosts();
     }, []);
     async function Submit() {
+        console.log("3")
         try {
             const res = await axiosInstance.put("/back/time/submit", {
                 // const res = await axios.put("http://localhost:3000/back/time/submit", {
@@ -75,6 +78,7 @@ function Study() {
     }
 
     async function init() {
+        console.log("4")
         // console.log("help")
         setCheck(!check)
         console.log(check)
@@ -115,6 +119,7 @@ function Study() {
 
     // run the webcam image through the image model
     async function predict() {
+        // console.log("5")
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
 
