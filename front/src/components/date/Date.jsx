@@ -23,8 +23,8 @@ function Datedd({ category }) {
   // {pathname: '/posts/', search: '?user=kdyUpdated', hash: '', state: undefined}
   useEffect(() => {
     const fetchPosts = async () => {
-      // const res = await axiosInstance.get("/back/time/")
-      const res = await axios.get("http://localhost:3000/back/time/");
+      const res = await axiosInstance.get("/back/time/")
+      // const res = await axios.get("http://localhost:3000/back/time/");
       console.log(res);
 
       setPosts(res.data);

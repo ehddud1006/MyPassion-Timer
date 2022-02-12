@@ -5,7 +5,7 @@ import * as tf from "@tensorflow/tfjs";
 import * as tmImage from "@teachablemachine/image";
 import "./study.css";
 import $ from "jquery";
-import {} from "jquery.cookie";
+import { } from "jquery.cookie";
 import { axiosInstance } from "../../config";
 var top = 0;
 function Study() {
@@ -41,9 +41,8 @@ function Study() {
     // console.log("2");
     // console.log(name)
     const fetchPosts = async () => {
-      // const res = await axios.get("http://localhost:3000/api/posts");
-      // const res = await axiosInstance.post("/back/time/", {
-      const res = await axios.post("http://localhost:3000/back/time/", {
+      const res = await axiosInstance.post("/back/time/", {
+        // const res = await axios.post("http://localhost:3000/back/time/", {
         username: name,
       });
       console.log("hh");
@@ -85,15 +84,15 @@ function Study() {
     // console.log(top);
     // await console.log(go);
     try {
-      // const res = await axiosInstance.put("/back/time/submit", {
-      const res = await axios.put("http://localhost:3000/back/time/submit", {
+      const res = await axiosInstance.put("/back/time/submit", {
+        // const res = await axios.put("http://localhost:3000/back/time/submit", {
         username: name,
         id: id,
         time: top,
       });
       //   console.log(res);
       window.location.href = "/";
-    } catch (err) {}
+    } catch (err) { }
   }
 
   async function init() {
