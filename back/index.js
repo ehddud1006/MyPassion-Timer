@@ -1,10 +1,10 @@
-// 익스프레스 
+// 익스프레스
 const express = require("express");
 const app = express();
 
 // dotenv .env 파일을 사용하기 위함
-const dotenv = require("dotenv")
-dotenv.config()
+const dotenv = require("dotenv");
+dotenv.config();
 // dotenv .env 파일을 사용하기 위함
 
 // json 파일을 보내고 받을 수 있게한다.
@@ -12,26 +12,27 @@ app.use(express.json());
 
 // const authRoute = require("./routes/auth")
 // app.use("/api/auth", authRoute)
-const authRoute = require("./routes/auth")
-app.use("/back/auth", authRoute)
+const authRoute = require("./routes/auth");
+app.use("/back/auth", authRoute);
 // const postsRoute = require("./routes/posts")
 // app.use("/api/posts", postsRoute)
 // const categoriesRoute = require("./routes/categories")
 // app.use("/api/categories", categoriesRoute)
 
-const timeRoute = require("./routes/time")
-app.use("/back/time", timeRoute)
+const timeRoute = require("./routes/time");
+app.use("/back/time", timeRoute);
 
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 // mongoose.connect('mongodb://localhost:27017/test');
-mongoose.connect(process.env.MONGO_URL)
-    .then(console.log("Connect to MongoDB")).catch(err => console.log(err));
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(console.log("Connect to MongoDB"))
+  .catch((err) => console.log(err));
 
-
-app.use(express.static('build'))
-app.get('/*', function (req, res) {
-    res.sendFile(__dirname + '/build/index.html')
-})
+app.use(express.static("build"));
+app.get("/*", function (req, res) {
+  res.sendFile(__dirname + "/build/index.html");
+});
 // const multer = require("multer")
 // const storage = multer.diskStorage({
 //     destination: (req, file, cb) => {
@@ -59,12 +60,8 @@ app.get('/*', function (req, res) {
 // const path = require("path")
 // app.use("/images", express.static(path.join(__dirname, "/images")))
 
-
-
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    // app.listen(5000, () => {
-    console.log("Backend is running.");
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+app.listen(5000, () => {
+  console.log("Backend is running.");
 });
-
