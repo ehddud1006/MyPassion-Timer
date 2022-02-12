@@ -6,6 +6,8 @@ import Second from "../../image/second.jpg";
 import Third from "../../image/third.jpg";
 import { Link } from "react-router-dom";
 import RunTime from "../studentTime/RunTime";
+import { axiosInstance } from "../../config";
+
 import axios from "axios";
 
 function Datedd({ category }) {
