@@ -2,6 +2,7 @@ import React from "react";
 import "./runTime.css";
 
 function StudyTime({ p }) {
+  // console.log(p)
   var t = new Date(p - 32400000);
   let hours = t.getHours();
   let minutes = t.getMinutes();
@@ -17,6 +18,7 @@ function StudyTime({ p }) {
     seconds = "0" + seconds;
   }
   let str = hours + ":" + minutes + ":" + seconds;
+  // console.log(str)
   return <div>{str}</div>;
 }
 

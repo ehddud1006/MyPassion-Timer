@@ -55,6 +55,7 @@ function SignIn() {
       }
       // res.data && window.location.replace("/login")
     } catch (err) {
+      alert("중복되는 아이디입니다.");
       setError(true);
     }
     // const user = {
@@ -89,7 +90,9 @@ function SignIn() {
         console.log($.cookie("login_cookie"));
         window.location.href = "/";
       }
+
     } catch (err) { }
+
     // const user = {
     //     headers,
     //     username: username,

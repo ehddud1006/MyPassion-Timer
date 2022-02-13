@@ -11,7 +11,7 @@ function TopBarStudy({ category }) {
                 <div className="topLeft">
                     <Link
                         to="/"
-                        className="btn"
+                        className="btn btnLeft"
                     >
                         메인화면
                     </Link>
@@ -22,7 +22,7 @@ function TopBarStudy({ category }) {
                 <div className="topRight">
                     <Link
                         to="/signIn"
-                        className="btn"
+                        className="btn btnRight"
                     >
                         제출하기
                     </Link>

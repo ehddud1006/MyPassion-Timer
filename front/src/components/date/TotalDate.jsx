@@ -5,18 +5,17 @@ import First from "../../image/first.jpg";
 import Second from "../../image/second.jpg";
 import Third from "../../image/third.jpg";
 import { Link } from "react-router-dom";
-import RunTime from "../studentTime/RunTime";
+import RunTime2 from "../studentTime/RunTime2";
 import { axiosInstance } from "../../config";
 import $ from "jquery";
 import { } from "jquery.cookie";
 import axios from "axios";
 
-function Datedd({ category }) {
+function Datedd2({ category }) {
   function prize(p) {
-    var t = new Date(p - 32400000);
-    let hours = t.getHours();
-    let minutes = t.getMinutes();
-    let seconds = t.getSeconds();
+    let hours = p.hour;
+    let minutes = p.minute;
+    let seconds = p.second;
     if (hours.toString().length === 1) {
       hours = "0" + hours;
     }
@@ -29,17 +28,17 @@ function Datedd({ category }) {
     return hours + ":" + minutes + ":" + seconds;
   }
 
-  function getCurrentDate() {
-    var date = new Date();
-    var year = date.getFullYear();
-    var month = date.getMonth();
-    var today = date.getDate();
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var seconds = date.getSeconds();
-    var milliseconds = date.getMilliseconds();
-    return new Date(Date.UTC(year, month, today, hours, minutes, seconds, milliseconds));
-  }
+  // function getCurrentDate() {
+  //     var date = new Date();
+  //     var year = date.getFullYear();
+  //     var month = date.getMonth();
+  //     var today = date.getDate();
+  //     var hours = date.getHours();
+  //     var minutes = date.getMinutes();
+  //     var seconds = date.getSeconds();
+  //     var milliseconds = date.getMilliseconds();
+  //     return new Date(Date.UTC(year, month, today, hours, minutes, seconds, milliseconds));
+  // }
 
   console.log(category);
   //   console.log(new Date().toDateString());
@@ -66,13 +65,14 @@ function Datedd({ category }) {
     name: "undefinded",
     time: "undefinded"
   }
-
+  console.log("DADADA")
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axiosInstance.get("/back/time/")
-      // const res = await axios.get("http://localhost:3000/back/time/");
+      console.log("DADADA")
+      const res = await axiosInstance.get("/back/time/total")
+      // const res = await axios.get("http://localhost:3000/back/time/total");
       console.log(res);
-
+      console.log("HHH")
       setPosts(res.data);
       // {data: Array(3), status: 200, statusText: 'OK', headers: {…}, config: {…}, …}
       // config: {transitional: {…}, transformRequest: Array(1), transformResponse: Array(1), timeout: 0, adapter: ƒ, …}
@@ -86,10 +86,16 @@ function Datedd({ category }) {
     fetchPosts();
   }, []);
 
-  // console.log(posts);
+  console.log(posts);
   let pposts = posts;
   pposts = pposts.sort(function (a, b) {
-    return b.time - a.time;
+    if (b.hour == a.hour) {
+      if (b.minute == a.minute) {
+        return b.second - a.second
+      }
+      return b.minute - a.minute
+    }
+    return b.hour - a.hour;
   });
   // console.log(pposts);
   // pposts.map((p) => console.log(p));
@@ -98,17 +104,17 @@ function Datedd({ category }) {
 
 
 
-  pposts.map((p, i) => {
-    // console.log(typeof getCurrentDate())
-    // console.log(JSON.stringify(getCurrentDate()))
-    // console.log(new Date(p.updatedAt).getTime() + (9 * 3600000))
-    if (
-      new Date(p.updatedAt).toDateString() !=
-      new Date().toDateString()
-    ) {
-      p.time = 0
-    }
-  })
+  // pposts.map((p, i) => {
+  //     // console.log(typeof getCurrentDate())
+  //     // console.log(JSON.stringify(getCurrentDate()))
+  //     // console.log(new Date(p.updatedAt).getTime() + (9 * 3600000))
+  //     if (
+  //         new Date(p.updatedAt).toDateString() !=
+  //         new Date().toDateString()
+  //     ) {
+  //         p.time = 0
+  //     }
+  // })
 
   // 자신의 현재랭킹
   var myRank = 0
@@ -118,16 +124,16 @@ function Datedd({ category }) {
     // consolThird("have")
     pposts.map((p, i) => {
       // console.log(p.username)
-      if (i == 0 && p.time != 0) {
+      if (i == 0 && (p.hour != 0 || p.minute != 0 || p.second != 0)) {
         rankFirst.name = p.username
-        rankFirst.time = prize(p.time)
-      } else if (i == 1 && p.time != 0) {
+        rankFirst.time = prize(p)
+      } else if (i == 1 && (p.hour != 0 || p.minute != 0 || p.second != 0)) {
         rankSecond.name = p.username
-        rankSecond.time = prize(p.time)
+        rankSecond.time = prize(p)
       }
-      else if (i == 2 && p.time != 0) {
+      else if (i == 2 && (p.hour != 0 || p.minute != 0 || p.second != 0)) {
         rankThird.name = p.username
-        rankThird.time = prize(p.time)
+        rankThird.time = prize(p)
       }
 
 
@@ -140,16 +146,16 @@ function Datedd({ category }) {
   else {
     pposts.map((p, i) => {
       // console.log(p.username)
-      if (i == 0 && p.time != 0) {
+      if (i == 0 && (p.hour != 0 || p.minute != 0 || p.second != 0)) {
         rankFirst.name = p.username
-        rankFirst.time = prize(p.time)
-      } else if (i == 1 && p.time != 0) {
+        rankFirst.time = prize(p)
+      } else if (i == 1 && (p.hour != 0 || p.minute != 0 || p.second != 0)) {
         rankSecond.name = p.username
-        rankSecond.time = prize(p.time)
+        rankSecond.time = prize(p)
       }
-      else if (i == 2 && p.time != 0) {
+      else if (i == 2 && (p.hour != 0 || p.minute != 0 || p.second != 0)) {
         rankThird.name = p.username
-        rankThird.time = prize(p.time)
+        rankThird.time = prize(p)
       }
     })
   }
@@ -164,7 +170,6 @@ function Datedd({ category }) {
             <span>{month}월</span>
             <span>{day}일</span>
           </div>
-
         </div>
         <div className="dateRight"></div>
       </div>
@@ -216,7 +221,7 @@ function Datedd({ category }) {
         <div className="studyRight"></div>
       </div>
 
-      <RunTime data={pposts}></RunTime>
+      <RunTime2 data={pposts}></RunTime2>
 
       {/* <div className="studyStatus">
         <div className="studyStatusLeft">
@@ -453,4 +458,4 @@ function Datedd({ category }) {
   );
 }
 
-export default Datedd;
+export default Datedd2;

@@ -2,7 +2,7 @@ import React from "react";
 import "./topBar.css";
 import { Link } from "react-router-dom";
 import $ from "jquery";
-import {} from "jquery.cookie";
+import { } from "jquery.cookie";
 import axios from "axios";
 
 function TopBar({ category }) {
@@ -17,18 +17,18 @@ function TopBar({ category }) {
     <>
       <div className="top">
         <div className="topLeft">
-          <Link to="/study" className="btn">
+          <Link to="/study" className="btn btnLeft">
             공부하기
           </Link>
         </div>
         <div className="topCenter">동영타 {category} 랭킹</div>
         <div className="topRight">
           {$.cookie("login_cookie") ? (
-            <button className="btn" onClick={logout}>
+            <button className="btn btnRight" onClick={logout}>
               Logout
             </button>
           ) : (
-            <Link to="/signIn" className="btn">
+            <Link to="/signIn" className="btn btnRight">
               Sign In
             </Link>
           )}
@@ -38,9 +38,10 @@ function TopBar({ category }) {
         <div className="topLeft"></div>
         <div className="topCenter ">
           <ul className="toplist">
-            <li className="toplist topListItem">일간</li>
+            <li className="toplist topListItem">내가 지금 편한이유는 내리막길을 걷고 있기 때문이다.</li>
+            {/* <li className="toplist topListItem">일간</li>
             <li className="toplist topListItem">주간</li>
-            <li className="toplist topListItem">월간</li>
+            <li className="toplist topListItem">월간</li> */}
           </ul>
         </div>
         <div className="topRight"></div>

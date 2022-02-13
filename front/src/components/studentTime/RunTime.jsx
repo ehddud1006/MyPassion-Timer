@@ -1,8 +1,17 @@
 import React from "react";
+import StudyGraph from "../studygraph/StudyGraph";
 import "./runTime.css";
 import StudyTime from "./StudyTime";
 function RunTime({ data }) {
   console.log(data);
+  // console.log(typeof data)
+  // 첫번째 키를 가져온다.
+  // var first_key = Object.keys(data)[0];
+  // console.log(first_key)
+  // 첫번째 value를 가져온다.
+  var first_value = data[Object.keys(data)[0]];
+  console.log(first_value)
+
   return (
     <>
       {data.map((p, i) => (
@@ -18,7 +27,7 @@ function RunTime({ data }) {
                 <StudyTime p={p.time}></StudyTime>
               </div>
               <div className="rel">
-                <div className="graph">.</div>
+                <StudyGraph max={first_value.time} pp={p}></StudyGraph>
                 <div className="graph2">.</div>
               </div>
             </div>

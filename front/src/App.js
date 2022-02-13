@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignIn from "./components/singnIn/SignIn";
 import Study from "./components/study/Study";
 import TopBarStudy from "./components/topBarStudy/TopBarStudy";
+import TotalDate from "./components/date/TotalDate"
 
 function App() {
 
@@ -11,25 +12,25 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <TopBar category={"전체"}></TopBar>
-          <Date category={"전체"}></Date>
+          <TopBar category={"일간"}></TopBar>
+          <Date category={"일간"}></Date>
         </Route>
         <Route path="/su">
-          <TopBar category={"수능"}></TopBar>
-          <Date category={"수능"}></Date>
+          <TopBar category={"주간"}></TopBar>
+          <Date category={"주간"}></Date>
         </Route>
         <Route path="/gong">
-          <TopBar category={"공무원"}></TopBar>
-          <Date category={"공무원"}></Date>
+          <TopBar category={"월간"}></TopBar>
+          <Date category={"월간"}></Date>
         </Route>
         <Route path="/ja">
-          <TopBar category={"자격증"}></TopBar>
-          <Date category={"자격증"}></Date>
+          <TopBar category={"누적"}></TopBar>
+          <TotalDate category={"누적"}></TotalDate>
         </Route>
-        <Route path="/dae">
+        {/* <Route path="/dae">
           <TopBar category={"대학생"}></TopBar>
           <Date category={"대학생"}></Date>
-        </Route>
+        </Route> */}
         <Route path="/signIn">
           <SignIn></SignIn>
         </Route>
