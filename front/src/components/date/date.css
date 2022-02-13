@@ -498,7 +498,7 @@
     
     .studyStatus{
         padding: 2rem;
-        padding-left: vw;
+        padding-left: 5vw;
         width: 100%;
         height: 40px;
         background-color: white;
@@ -597,12 +597,12 @@
     }
     
     .bottomLeft, .bottomRight{
-        flex: 3;
+        flex: 1;
         display: flex;
     }
     
     .bottomCenter{
-        flex:6;
+        flex:12;
         display: flex;
         align-items: flex-start;
         justify-content:space-between;
