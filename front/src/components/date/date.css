@@ -163,6 +163,7 @@ overflow-x:hidden;
 
 .studyLeft > span:nth-child(5){
     color: #e62a43;
+    font-weight: 600;
 }
 
 .studyLeft2{
@@ -495,6 +496,7 @@ overflow-x:hidden;
     
     .studyLeft > span:nth-child(5){
         color: #e62a43;
+      
     }
     
     .studyLeft2{
