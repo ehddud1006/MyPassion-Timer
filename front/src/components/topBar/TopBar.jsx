@@ -38,7 +38,7 @@ function TopBar({ category }) {
         <div className="topLeft"></div>
         <div className="topCenter ">
           <ul className="toplist">
-            <li className="toplist topListItem">내가 지금 편한이유는 내리막길을 걷고 있기 때문이다.</li>
+            <li className="toplist topListItem">꿈을 꾸기에 인생은 빛난다.</li>
             {/* <li className="toplist topListItem">일간</li>
             <li className="toplist topListItem">주간</li>
             <li className="toplist topListItem">월간</li> */}
