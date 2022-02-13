@@ -389,11 +389,11 @@ overflow-x:hidden;
     
     .price{
         width: 100%;
-        height: 20vw;
+        height: 23vw;
         background-color: white;
         display: flex;
         padding-bottom: 0px;
-        padding-top: 4vh;
+        padding-top: 7vh;
     }
     
     .top3{
