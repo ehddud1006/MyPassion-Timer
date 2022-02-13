@@ -11,7 +11,6 @@ function getCurrentDate() {
     var milliseconds = date.getMilliseconds();
     return new Date(Date.UTC(year, month, today, hours, minutes, seconds, milliseconds));
 }
-
 const TimeSchema = new mongoose.Schema(
     {
         username: {
@@ -19,7 +18,19 @@ const TimeSchema = new mongoose.Schema(
             required: true,
             unique: true,
         },
-        time: {
+        hour: {
+            type: Number,
+            default: 0,
+        },
+        minute: {
+            type: Number,
+            default: 0,
+        },
+        second: {
+            type: Number,
+            default: 0,
+        },
+        check: {
             type: Number,
             default: 0,
         },
@@ -35,4 +46,4 @@ const TimeSchema = new mongoose.Schema(
     // { timestamps: true }
 );
 
-module.exports = mongoose.model("Time", TimeSchema);
+module.exports = mongoose.model("WeekTime", TimeSchema);
