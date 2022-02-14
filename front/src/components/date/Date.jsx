@@ -74,7 +74,7 @@ function Datedd({ category }) {
       const res = await axiosInstance.get("/back/time/")
       // const res = await axios.get("http://localhost:3000/back/time/");
       console.log(res);
-
+      console.log(res.data)
       setPosts(res.data);
       // {data: Array(3), status: 200, statusText: 'OK', headers: {…}, config: {…}, …}
       // config: {transitional: {…}, transformRequest: Array(1), transformResponse: Array(1), timeout: 0, adapter: ƒ, …}
