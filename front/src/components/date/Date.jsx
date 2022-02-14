@@ -93,8 +93,8 @@ function Datedd({ category }) {
   pposts = pposts.sort(function (a, b) {
     return b.time - a.time;
   });
-  // console.log(pposts);
-  // pposts.map((p) => console.log(p));
+  console.log(pposts);
+  pposts.map((p) => console.log(p));
   var objectLength = Object.keys(pposts).length;
   // console.log("leng " + objectLength)
 
