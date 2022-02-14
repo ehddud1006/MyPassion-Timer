@@ -90,7 +90,6 @@ function SignIn() {
         console.log($.cookie("login_cookie"));
         window.location.href = "/";
       }
-
     } catch (err) { }
 
     // const user = {
