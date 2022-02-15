@@ -58,8 +58,8 @@ function Study() {
     // console.log("2");
     // console.log(name)
     const fetchPosts = async () => {
-      // const res = await axiosInstance.post("/back/time/", {
-      const res = await axios.post("http://localhost:3000/back/time/", {
+      const res = await axiosInstance.post("/back/time/", {
+        // const res = await axios.post("http://localhost:3000/back/time/", {
         username: name,
       });
       console.log(res);
@@ -67,13 +67,13 @@ function Study() {
       // console.log(current)
       // console.log(getCurrentDate())
       // console.log(getCurrentDate() - current)
-      // const res2 = await axiosInstance.post("/back/time/week", {
-      const res2 = await axios.post("http://localhost:3000/back/time/week", {
+      const res2 = await axiosInstance.post("/back/time/week", {
+        // const res2 = await axios.post("http://localhost:3000/back/time/week", {
         username: name,
       });
       console.log(res2);
-      // const res3 = await axiosInstance.post("/back/time/total", {
-      const res3 = await axios.post("http://localhost:3000/back/time/total", {
+      const res3 = await axiosInstance.post("/back/time/total", {
+        // const res3 = await axios.post("http://localhost:3000/back/time/total", {
         username: name,
       });
       console.log(res3);
