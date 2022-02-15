@@ -88,6 +88,7 @@ function Datedd({ category }) {
     fetchPosts();
   }, []);
   let pposts = posts;
+
   pposts.map((p, i) => {
     // console.log(typeof getCurrentDate())
     // console.log(JSON.stringify(getCurrentDate()))

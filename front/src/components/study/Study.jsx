@@ -145,7 +145,7 @@ function Study() {
           time: top,
         });
         const res2 = await axiosInstance.put("/back/time/submit2", {
-          // const res2 = await axios.put("http://localhost:3000/back/time/submit2",{
+          // const res2 = await axios.put("http://localhost:3000/back/time/submit2", {
           username: name,
           id: weekid,
           hour: hour,
