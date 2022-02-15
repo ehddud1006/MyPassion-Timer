@@ -93,7 +93,7 @@ function Datedd({ category }) {
   pposts = pposts.sort(function (a, b) {
     return b.time - a.time;
   });
-  console.log("PPP: " + pposts);
+  // console.log("PPP: " + pposts);
   // pposts.map((p) => console.log(p));
   var objectLength = Object.keys(pposts).length;
   // console.log("leng " + objectLength)
@@ -107,7 +107,9 @@ function Datedd({ category }) {
     }
   });
 
-  console.log("PPP2: " + pposts);
+  // console.log("PPP2: " + pposts);
+  pposts.map((p) => console.log(p));
+
   // 자신의 현재랭킹
   var myRank = 0;
   var name = $.cookie("login_cookie");
