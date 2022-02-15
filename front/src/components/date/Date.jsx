@@ -94,7 +94,7 @@ function Datedd({ category }) {
     return b.time - a.time;
   });
   // console.log("PPP: " + pposts);
-  // pposts.map((p) => console.log(p));
+  pposts.map((p) => console.log(p));
   var objectLength = Object.keys(pposts).length;
   // console.log("leng " + objectLength)
 
