@@ -88,6 +88,16 @@ function Datedd({ category }) {
     fetchPosts();
   }, []);
 
+  pposts.map((p, i) => {
+    // console.log(typeof getCurrentDate())
+    // console.log(JSON.stringify(getCurrentDate()))
+    // console.log(new Date(p.updatedAt).getTime() + (9 * 3600000))
+    if (new Date(p.updatedAt).toDateString() != new Date().toDateString()) {
+      p.time = 0;
+    }
+  });
+
+
   // console.log(posts);
   let pposts = posts;
   pposts = pposts.sort(function (a, b) {
@@ -98,14 +108,6 @@ function Datedd({ category }) {
   var objectLength = Object.keys(pposts).length;
   // console.log("leng " + objectLength)
 
-  pposts.map((p, i) => {
-    // console.log(typeof getCurrentDate())
-    // console.log(JSON.stringify(getCurrentDate()))
-    // console.log(new Date(p.updatedAt).getTime() + (9 * 3600000))
-    if (new Date(p.updatedAt).toDateString() != new Date().toDateString()) {
-      p.time = 0;
-    }
-  });
 
   // console.log("PPP2: " + pposts);
   pposts.map((p) => console.log(p));
