@@ -87,7 +87,7 @@ function Datedd({ category }) {
     };
     fetchPosts();
   }, []);
-
+  let pposts = posts;
   pposts.map((p, i) => {
     // console.log(typeof getCurrentDate())
     // console.log(JSON.stringify(getCurrentDate()))
@@ -99,7 +99,7 @@ function Datedd({ category }) {
 
 
   // console.log(posts);
-  let pposts = posts;
+
   pposts = pposts.sort(function (a, b) {
     return b.time - a.time;
   });
