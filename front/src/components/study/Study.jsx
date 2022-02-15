@@ -138,8 +138,8 @@ function Study() {
         var hour = Math.floor((top % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minute = Math.floor((top % (1000 * 60 * 60)) / (1000 * 60));
         var second = Math.floor((top % (1000 * 60)) / 1000);
-        // const res = await axiosInstance.put("/back/time/submit", {
-        const res1 = await axios.put("http://localhost:3000/back/time/submit", {
+        const res = await axiosInstance.put("/back/time/submit", {
+          // const res1 = await axios.put("http://localhost:3000/back/time/submit", {
           username: name,
           id: id,
           time: top,
