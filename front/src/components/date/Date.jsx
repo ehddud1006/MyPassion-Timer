@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import RunTime from "../studentTime/RunTime";
 import { axiosInstance } from "../../config";
 import $ from "jquery";
-import { } from "jquery.cookie";
+import {} from "jquery.cookie";
 import axios from "axios";
 
 function Datedd({ category }) {
@@ -71,10 +71,10 @@ function Datedd({ category }) {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axiosInstance.get("/back/time/")
-      // const res = await axios.get("http://localhost:3000/back/time/");
+      // const res = await axiosInstance.get("/back/time/")
+      const res = await axios.get("http://localhost:3000/back/time/");
       console.log(res);
-      console.log(res.data)
+      console.log(res.data);
       setPosts(res.data);
       // {data: Array(3), status: 200, statusText: 'OK', headers: {…}, config: {…}, …}
       // config: {transitional: {…}, transformRequest: Array(1), transformResponse: Array(1), timeout: 0, adapter: ƒ, …}
@@ -84,34 +84,55 @@ function Datedd({ category }) {
       // status: 200
       // statusText: "OK"
       // [[Prototype]]: Object
+
+      if (
+        new Date() >= new Date("02/20/2022 23:59:00") &&
+        new Date() < new Date("02/21/2022 00:01:00")
+      ) {
+        // const res = await axiosInstance.put("/back/time/submit", {
+        const res = await axios.post("http://localhost:3000/back/time/reset");
+      }
     };
     fetchPosts();
   }, []);
+  // var a = new Date();
+  // var b = new Date();
+  var KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+  // console.log(a.getTime());
+  // console.log(b.setTime(a.getTime()));
+  // console.log(new Date(a.getTime() - KR_TIME_DIFF));
+  // console.log(posts);
   let pposts = posts;
-
+  pposts.map((p) => console.log(p));
   pposts.map((p, i) => {
     // console.log(typeof getCurrentDate())
     // console.log(JSON.stringify(getCurrentDate()))
     // console.log(new Date(p.updatedAt).getTime() + (9 * 3600000))
-    if (new Date(p.updatedAt).toDateString() != new Date().toDateString()) {
+    console.log(p.username);
+    console.log(p.updatedAt);
+    var a = new Date();
+    // console.log(new Date());
+    // console.log(new Date(p.updatedAt).toDateString());
+    // console.log(new Date().toDateString());
+    // console.log(getCurrentDate().toDateString());
+    console.log(new Date(p.updatedAt).toDateString());
+    console.log(new Date(a.getTime() - KR_TIME_DIFF).toDateString());
+    if (
+      new Date(p.updatedAt).toDateString() !=
+      new Date(a.getTime() - KR_TIME_DIFF).toDateString()
+    ) {
       p.time = 0;
     }
   });
 
-
-  // console.log(posts);
-
+  pposts.map((p) => console.log(p));
   pposts = pposts.sort(function (a, b) {
     return b.time - a.time;
   });
-  // console.log("PPP: " + pposts);
+  // console.log(pposts);
   pposts.map((p) => console.log(p));
   var objectLength = Object.keys(pposts).length;
   // console.log("leng " + objectLength)
-
-
-  // console.log("PPP2: " + pposts);
-  pposts.map((p) => console.log(p));
 
   // 자신의 현재랭킹
   var myRank = 0;

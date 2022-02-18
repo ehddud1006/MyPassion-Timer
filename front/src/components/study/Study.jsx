@@ -8,7 +8,7 @@ import $ from "jquery";
 import { } from "jquery.cookie";
 import { axiosInstance } from "../../config";
 var top = 0;
-
+var bottom = 0;
 function getCurrentDate() {
   var date = new Date();
   var year = date.getFullYear();
@@ -22,7 +22,11 @@ function getCurrentDate() {
 }
 var deadline = getCurrentDate();
 var current = new Date();
+console.log("2");
+// 윗부분은 한번만 실행이 된다.
+// fuction Study()는 여러번 실행 된다.
 function Study() {
+  console.log("1");
   // More API functions here:
   // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
@@ -42,10 +46,13 @@ function Study() {
   //   console.log(name);
   const [check, setCheck] = useState(true);
   const [check2, setCheck2] = useState(true);
+  const [check3, setCheck3] = useState(false);
+  const [finish, setFinish] = useState(false);
   const [time, setTime] = useState(0);
   const [id, setId] = useState("");
   const [weekid, setweekId] = useState("");
   const [totalid, settotalId] = useState("");
+  const [monthid, setMonthId] = useState("");
   var go = 0;
   //   console.log("plztime" + total_studied);
   // const { search } = useLocation();
@@ -77,12 +84,20 @@ function Study() {
         username: name,
       });
       console.log(res3);
+
+      const res4 = await axiosInstance.post("/back/time/month", {
+        // const res4 = await axios.post("http://localhost:3000/back/time/month", {
+        username: name,
+      });
+      console.log(res4);
       // console.log(res)
       // console.log(res.data[0].time);
       setId(res.data[0]._id);
       setweekId(res2.data[0]._id);
       settotalId(res3.data[0]._id);
+      setMonthId(res4.data[0]._id);
       total_studied = res.data[0].time;
+      bottom = res.data[0].time;
       console.log(new Date());
       console.log(current);
       // console.log(getCurrentDate() - new Date())
@@ -91,14 +106,17 @@ function Study() {
       // console.log(new Date(res.data[0].updatedAt).toDateString());
       // console.log(new Date().toDateString());
       // console.log(getCurrentDate().toDateString());
+      var KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+      var a = new Date();
       if (
         new Date(res.data[0].updatedAt).toDateString() ===
-        new Date().toDateString()
+        new Date(a.getTime() - KR_TIME_DIFF).toDateString()
       ) {
         // console.log("DDDADADA")
         setTime(res.data[0].time);
       } else {
         setTime(0);
+        bottom = 0;
       }
       //   console.log("plz" + total_studied);
       //   console.log(time);
@@ -112,6 +130,15 @@ function Study() {
       // status: 200
       // statusText: "OK"
       // [[Prototype]]: Object
+      setFinish(true);
+      console.log(finish);
+      if (
+        new Date() >= new Date("02/20/2022 23:59:00") &&
+        new Date() < new Date("02/21/2022 00:01:00")
+      ) {
+        const res = await axiosInstance.post("/back/time/reset")
+        // const res = await axios.post("http://localhost:3000/back/time/reset");
+      }
     };
     fetchPosts();
   }, []);
@@ -135,22 +162,37 @@ function Study() {
     if (current.toDateString() === new Date().toDateString()) {
       try {
         console.log("submit1");
-        var hour = Math.floor((top % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minute = Math.floor((top % (1000 * 60 * 60)) / (1000 * 60));
-        var second = Math.floor((top % (1000 * 60)) / 1000);
+        console.log(top);
+        console.log(bottom);
+        var hour = Math.floor(
+          ((top - bottom) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minute = Math.floor(
+          ((top - bottom) % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        var second = Math.floor(((top - bottom) % (1000 * 60)) / 1000);
+        console.log(hour);
+        console.log(minute);
+        console.log(second);
+
         const res = await axiosInstance.put("/back/time/submit", {
           // const res1 = await axios.put("http://localhost:3000/back/time/submit", {
           username: name,
           id: id,
           time: top,
+          hour: hour,
+          minute: minute,
+          second: second + 1,
         });
         const res2 = await axiosInstance.put("/back/time/submit2", {
-          // const res2 = await axios.put("http://localhost:3000/back/time/submit2", {
+          // const res2 = await axios.put(
+          //   "http://localhost:3000/back/time/submit2",
+          //   {
           username: name,
           id: weekid,
           hour: hour,
           minute: minute,
-          second: second,
+          second: second + 1,
         }
         );
         const res3 = await axiosInstance.put("/back/time/submit3", {
@@ -161,7 +203,19 @@ function Study() {
           id: totalid,
           hour: hour,
           minute: minute,
-          second: second,
+          second: second + 1,
+        }
+        );
+
+        const res4 = await axiosInstance.put("/back/time/submit4", {
+          // const res4 = await axios.put(
+          //   "http://localhost:3000/back/time/submit4",
+          //   {
+          username: name,
+          id: monthid,
+          hour: hour,
+          minute: minute,
+          second: second + 1,
         }
         );
         //   console.log(res);
@@ -171,15 +225,20 @@ function Study() {
       try {
         console.log("submit2");
         var hour = Math.floor(
-          (before12 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          ((top - bottom) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
         );
-        var minute = Math.floor((before12 % (1000 * 60 * 60)) / (1000 * 60));
-        var second = Math.floor((before12 % (1000 * 60)) / 1000);
+        var minute = Math.floor(
+          ((top - bottom) % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        var second = Math.floor(((top - bottom) % (1000 * 60)) / 1000);
         const res = await axiosInstance.put("/back/time/submit", {
           // const res = await axios.put("http://localhost:3000/back/time/submit", {
           username: name,
           id: id,
-          time: after12,
+          time: top,
+          hour: hour,
+          minute: minute,
+          second: second + 1,
         });
         //   console.log(res);
         // window.location.href = "/";
@@ -191,7 +250,7 @@ function Study() {
           id: weekid,
           hour: hour,
           minute: minute,
-          second: second,
+          second: second + 1,
         }
         );
 
@@ -203,7 +262,19 @@ function Study() {
           id: totalid,
           hour: hour,
           minute: minute,
-          second: second,
+          second: second + 1,
+        }
+        );
+
+        const res4 = await axiosInstance.put("/back/time/submit4", {
+          // const res4 = await axios.put(
+          //   "http://localhost:3000/back/time/submit4",
+          //   {
+          username: name,
+          id: monthid,
+          hour: hour,
+          minute: minute,
+          second: second + 1,
         }
         );
         window.location.href = "/";
@@ -216,6 +287,7 @@ function Study() {
     // setHelp(1);
     // console.log("help")
     setCheck(!check);
+    setCheck3(!check3);
     // console.log(check);
     // console.log("total" + total_studied);
     const modelURL = URL + "model.json";
@@ -323,28 +395,33 @@ function Study() {
   //   console.log(check);
   return (
     <div>
-      <div className="passion">
-        <div>공부하기싫을때, 남들도 하기싫다.</div>
-        <div>그때하는 것이 경쟁력이다.</div>
-        <div id="webcam-container"></div>
-        <div id="label-container"></div>
-        <div className="btngroup">
-          {check ? (
-            <button type="button" onClick={init}>
-              Start
-            </button>
-          ) : (
-            <div></div>
-          )}
-          {check2 ? (
-            <button type="button" onClick={Submit}>
-              기록저장
-            </button>
-          ) : (
-            <div></div>
-          )}
+      {finish ? (
+        <div className="passion">
+          <div>공부하기싫을때, 남들도 하기싫다.</div>
+          <div>그때하는 것이 경쟁력이다.</div>
+          <div id="webcam-container"></div>
+          <div id="label-container"></div>
+          <div className="btngroup">
+            {check ? (
+              <button type="button" onClick={init}>
+                Start
+              </button>
+            ) : (
+              <div></div>
+            )}
+            {check2 && check3 ? (
+              <button type="button" onClick={Submit}>
+                기록저장
+              </button>
+            ) : (
+              <div></div>
+            )}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div></div>
+      )}
+
       <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
       <script

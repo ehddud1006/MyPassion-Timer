@@ -34,7 +34,7 @@ var objectLength = 0
 var myRank = 0;
 var name = $.cookie("login_cookie");
 var pposts = [];
-function Datedd1({ category }) {
+function Datedd2({ category }) {
   console.log("1")
   function prize(p) {
     let hours = p.hour;
@@ -81,8 +81,8 @@ function Datedd1({ category }) {
     const fetchPosts = async () => {
       console.log("2")
       console.log("DADADA");
-      const res = await axiosInstance.get("/back/time/total")
-      // const res = await axios.get("http://localhost:3000/back/time/total");
+      const res = await axiosInstance.get("/back/time/month")
+      // const res = await axios.get("http://localhost:3000/back/time/month");
       console.log(res);
       console.log("HHH");
       setPosts(res.data);
@@ -98,8 +98,8 @@ function Datedd1({ category }) {
         new Date() >= new Date("02/20/2022 23:59:00") &&
         new Date() < new Date("02/21/2022 00:01:00")
       ) {
-        const res2 = await axiosInstance.post("/back/time/reset")
-        // const res2 = await axios.post("http://localhost:3000/back/time/reset");
+        const res = await axiosInstance.post("/back/time/reset")
+        // const res = await axios.post("http://localhost:3000/back/time/reset");
       }
       // console.log(posts);
 
@@ -191,7 +191,7 @@ function Datedd1({ category }) {
         <div className="dateRight"></div>
       </div>
         <div className="dategrayBar"></div>
-        <div className="top3">누적 Top3</div>
+        <div className="top3">월간 Top3</div>
         <div className="price">
           <div className="priceLeft"></div>
           <div className="priceCenter">
@@ -413,4 +413,4 @@ function Datedd1({ category }) {
   );
 }
 
-export default Datedd1;
+export default Datedd2;
