@@ -46,12 +46,12 @@ cron.schedule('0 0 0 ? * *',
     // console.log("ww")
     // console.log(req.body);
     // console.log("plz");
-    var tt;
-    tt = await Time.updateMany(
+    var tt1;
+    tt1 = await Time.updateMany(
       {},
       { $set: { time: 0, hour: 0, minute: 0, second: 0 } }
     );
-    console.log(tt);
+    console.log(tt1);
   });
 
 cron.schedule('0 0 * * 1',
@@ -60,12 +60,12 @@ cron.schedule('0 0 * * 1',
     // console.log("ww")
     // console.log(req.body);
     // console.log("plz");
-    var tt;
-    tt = await WeekTime.updateMany(
+    var tt2;
+    tt2 = await WeekTime.updateMany(
       {},
       { $set: { hour: 0, minute: 0, second: 0 } }
     );
-    console.log(tt);
+    console.log(tt2);
   });
 
 cron.schedule('30 59 23 L * ?',
@@ -74,12 +74,12 @@ cron.schedule('30 59 23 L * ?',
     // console.log("ww")
     // console.log(req.body);
     // console.log("plz");
-    var tt;
-    tt = await MonthTime.updateMany(
+    var tt3;
+    tt3 = await MonthTime.updateMany(
       {},
       { $set: { hour: 0, minute: 0, second: 0 } }
     );
-    console.log(tt);
+    console.log(tt3);
   });
 // const multer = require("multer")
 // const storage = multer.diskStorage({
@@ -108,8 +108,8 @@ cron.schedule('30 59 23 L * ?',
 // const path = require("path")
 // app.use("/images", express.static(path.join(__dirname, "/images")))
 
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-app.listen(5000, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  // app.listen(5000, () => {
   console.log("Backend is running.");
 });
