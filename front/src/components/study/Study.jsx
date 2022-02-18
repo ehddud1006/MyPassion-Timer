@@ -23,6 +23,7 @@ function getCurrentDate() {
 var deadline = getCurrentDate();
 console.log(deadline)
 var current = new Date();
+console.log(deadline - current)
 console.log("2");
 // 윗부분은 한번만 실행이 된다.
 // fuction Study()는 여러번 실행 된다.
