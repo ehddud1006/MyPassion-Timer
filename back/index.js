@@ -35,25 +35,52 @@ app.get("/*", function (req, res) {
 });
 
 var cron = require('node-cron');
-
-cron.schedule('* * * * *',
+const User = require("./models/User");
+const Time = require("./models/Time");
+const WeekTime = require("./models/WeekTime");
+const TotalTime = require("./models/TotalTime");
+const MonthTime = require("./models/MonthTime");
+cron.schedule('0 0 0 ? * *',
   async (req, res) => {
-    var username = req.body.username;
+    // console.log('매 분 마다 작업 실행');
+    // console.log("ww")
     // console.log(req.body);
     // console.log("plz");
-    try {
-      var tt;
-      tt = await WeekTime.updateMany(
-        {},
-        { $set: { hour: 0, minute: 0, second: 0 } }
-      );
-      console.log(tt);
-      res.status(200).json(tt);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  }
-);
+    var tt;
+    tt = await Time.updateMany(
+      {},
+      { $set: { time: 0, hour: 0, minute: 0, second: 0 } }
+    );
+    console.log(tt);
+  });
+
+cron.schedule('0 0 * * 1',
+  async (req, res) => {
+    // console.log('매 분 마다 작업 실행');
+    // console.log("ww")
+    // console.log(req.body);
+    // console.log("plz");
+    var tt;
+    tt = await WeekTime.updateMany(
+      {},
+      { $set: { hour: 0, minute: 0, second: 0 } }
+    );
+    console.log(tt);
+  });
+
+cron.schedule('30 59 23 L * ?',
+  async (req, res) => {
+    // console.log('매 분 마다 작업 실행');
+    // console.log("ww")
+    // console.log(req.body);
+    // console.log("plz");
+    var tt;
+    tt = await MonthTime.updateMany(
+      {},
+      { $set: { hour: 0, minute: 0, second: 0 } }
+    );
+    console.log(tt);
+  });
 // const multer = require("multer")
 // const storage = multer.diskStorage({
 //     destination: (req, file, cb) => {
@@ -81,8 +108,8 @@ cron.schedule('* * * * *',
 // const path = require("path")
 // app.use("/images", express.static(path.join(__dirname, "/images")))
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  // app.listen(5000, () => {
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+app.listen(5000, () => {
   console.log("Backend is running.");
 });
