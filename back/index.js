@@ -37,7 +37,22 @@ app.get("/*", function (req, res) {
 var cron = require('node-cron');
 
 cron.schedule('* * * * *', function () {
-  console.log('매 분 마다 작업 실행');
+  async (req, res) => {
+    // var username = req.body.username;
+    // console.log(req.body);
+    // console.log("plz");
+    try {
+      var tt;
+      tt = await WeekTime.updateMany(
+        {},
+        { $set: { hour: 0, minute: 0, second: 0 } }
+      );
+      console.log(tt);
+      res.status(200).json(tt);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
 });
 // const multer = require("multer")
 // const storage = multer.diskStorage({
