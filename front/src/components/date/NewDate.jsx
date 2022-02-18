@@ -102,38 +102,14 @@ function Datedd4({ category }) {
         // const res = await axios.post("http://localhost:3000/back/time/reset");
       }
       // console.log(posts);
-
+      // console.log("WW")
       setLoad(!load)
       // console.log(myRank)
     };
     fetchPosts();
   }, []);
+
   if (load) {
-    var KR_TIME_DIFF = 9 * 60 * 60 * 1000;
-    let pposts = posts;
-    // pposts.map((p) => console.log(p));
-    pposts.map((p, i) => {
-      // console.log(typeof getCurrentDate())
-      // console.log(JSON.stringify(getCurrentDate()))
-      // console.log(new Date(p.updatedAt).getTime() + (9 * 3600000))
-      // console.log(p.username);
-      // console.log(p.updatedAt);
-      var a = new Date();
-      // console.log(new Date());
-      // console.log(new Date(p.updatedAt).toDateString());
-      // console.log(new Date().toDateString());
-      // console.log(getCurrentDate().toDateString());
-      console.log(new Date(p.updatedAt).toDateString());
-      console.log(new Date(a.getTime() - KR_TIME_DIFF).toDateString());
-      if (
-        new Date(p.updatedAt).toDateString() !=
-        new Date(a.getTime() - KR_TIME_DIFF).toDateString()
-      ) {
-        p.hour = 0;
-        p.minute = 0;
-        p.second = 0
-      }
-    });
 
     pposts = posts;
     pposts = pposts.sort(function (a, b) {
