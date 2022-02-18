@@ -100,6 +100,8 @@ function Study() {
       bottom = res.data[0].time;
       console.log(new Date());
       console.log(current);
+      console.log(new Date(res.data[0].updatedAt).toDateString())
+      console.log(new Date(a.getTime() - KR_TIME_DIFF).toDateString())
       // console.log(getCurrentDate() - new Date())
       // console.log(res.data[0].updatedAt);
       // console.log(getCurrentDate() - res.data[0].updatedAt)
