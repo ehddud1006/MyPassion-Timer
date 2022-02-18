@@ -44,21 +44,26 @@ const MonthTime = require("./models/MonthTime");
 
 // cron.schedule('* * * * * *',
 //   async (req, res) => {
-//     // console.log('매 분 마다 작업 실행');
+//     console.log('매 분 마다 작업 실행');
 //     // console.log("ww")
 //     // console.log(req.body);
 //     // console.log("plz");
 //     var tt3;
-//     tt3 = await TotalTime.updateMany(
+//     tt3 = await MonthTime.updateMany(
 //       {},
 //       { $set: { hour: 0, minute: 0, second: 0 } }
 //     );
 //     console.log(tt3);
 //   });
 
-cron.schedule('0 0 * * *',
+
+// var a = new Date()
+// console.log(a)
+// console.log(a.getDay())
+// cron.schedule('41 4 * * 6',
+cron.schedule('59 23 * * *',
   async (req, res) => {
-    // console.log('매 분 마다 작업 실행');
+    console.log('매 분 마다 작업 실행');
     // console.log("ww")
     // console.log(req.body);
     // console.log("plz");
@@ -70,7 +75,7 @@ cron.schedule('0 0 * * *',
     console.log(tt1);
   });
 
-cron.schedule('0 0 * * 1',
+cron.schedule('59 23 * * 0',
   async (req, res) => {
     // console.log('매 분 마다 작업 실행');
     // console.log("ww")
@@ -124,8 +129,8 @@ cron.schedule('0 0 1 * *',
 // const path = require("path")
 // app.use("/images", express.static(path.join(__dirname, "/images")))
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  // app.listen(5000, () => {
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+app.listen(5000, () => {
   console.log("Backend is running.");
 });

@@ -18,7 +18,7 @@ function getCurrentDate() {
   var minutes = date.getMinutes();
   var seconds = date.getSeconds();
   var milliseconds = date.getMilliseconds();
-  return new Date(Date.UTC(year, month, today, 15, 59, 59, milliseconds));
+  return new Date(Date.UTC(year, month, today, 14, 59, 59, milliseconds));
 }
 var deadline = getCurrentDate();
 console.log(deadline)
@@ -26,7 +26,7 @@ var current = new Date();
 var currentMonth = current.getMonth();
 var currentDay = current.getDay();
 console.log(deadline - current)
-console.log(current - deadline)
+// console.log(current - deadline)
 console.log("2");
 // 윗부분은 한번만 실행이 된다.
 // fuction Study()는 여러번 실행 된다.
@@ -152,8 +152,9 @@ function Study() {
   async function Submit() {
     setCheck2(!check2);
     console.log(getCurrentDate());
+    var key = new Date()
     var before12 = deadline - current;
-    var after12 = new Date() - deadline;
+    var after12 = key - deadline;
     // console.log(간격)
     // var 시 = Math.floor((간격 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     // var 분 = Math.floor((간격 % (1000 * 60 * 60)) / (1000 * 60));
@@ -166,7 +167,7 @@ function Study() {
     total_studied = time;
     // console.log(top);
     // await console.log(go);
-    if (current.toDateString() === new Date().toDateString()) {
+    if (current.toDateString() === key.toDateString()) {
       try {
         console.log("submit1");
         console.log(top);
@@ -179,13 +180,6 @@ function Study() {
         );
         var second = Math.floor(((top - bottom) % (1000 * 60)) / 1000);
 
-        var hour1 = Math.floor(
-          ((top - bottom) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        var minute1 = Math.floor(
-          ((top - bottom) % (1000 * 60 * 60)) / (1000 * 60)
-        );
-        var second1 = Math.floor(((top - bottom) % (1000 * 60)) / 1000);
 
         console.log(hour);
         console.log(minute);
@@ -247,40 +241,78 @@ function Study() {
           ((top - bottom) % (1000 * 60 * 60)) / (1000 * 60)
         );
         var second = Math.floor(((top - bottom) % (1000 * 60)) / 1000);
+
+        var hour1 = Math.floor(
+          ((after12) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minute1 = Math.floor(
+          ((after12) % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        var second1 = Math.floor(((after12) % (1000 * 60)) / 1000);
+
         const res = await axiosInstance.put("/back/time/submit", {
           // const res = await axios.put("http://localhost:3000/back/time/submit", {
           username: name,
           id: id,
-          time: top,
-          hour: hour,
-          minute: minute,
-          second: second + 1,
+          time: after12,
+          hour: hour1,
+          minute: minute1,
+          second: second1 + 1,
         });
         //   console.log(res);
         // window.location.href = "/";
-        const res2 = await axiosInstance.put("/back/time/submit2", {
-          // const res2 = await axios.put(
-          //   "http://localhost:3000/back/time/submit2",
-          //   {
-          username: name,
-          id: weekid,
-          hour: hour,
-          minute: minute,
-          second: second + 1,
+        if (currentDay == key.getDay()) {
+          const res2 = await axiosInstance.put("/back/time/submit2", {
+            // const res2 = await axios.put(
+            //   "http://localhost:3000/back/time/submit2",
+            //   {
+            username: name,
+            id: weekid,
+            hour: hour,
+            minute: minute,
+            second: second + 1,
+          }
+          );
         }
-        );
-
-        const res3 = await axiosInstance.put("/back/time/submit3", {
-          // const res3 = await axios.put(
-          //   "http://localhost:3000/back/time/submit3",
-          //   {
-          username: name,
-          id: totalid,
-          hour: hour,
-          minute: minute,
-          second: second + 1,
+        else {
+          const res2 = await axiosInstance.put("/back/time/submit2", {
+            // const res2 = await axios.put(
+            //   "http://localhost:3000/back/time/submit2",
+            //   {
+            username: name,
+            id: weekid,
+            hour: hour1,
+            minute: minute1,
+            second: second1 + 1,
+          }
+          );
         }
-        );
+        if (currentMonth == key.getMonth()) {
+          const res3 = await axiosInstance.put("/back/time/submit3", {
+            // const res3 = await axios.put(
+            //   "http://localhost:3000/back/time/submit3",
+            //   {
+            username: name,
+            id: totalid,
+            hour: hour,
+            minute: minute,
+            second: second + 1,
+          }
+          );
+        }
+        else {
+          const res3 = await axiosInstance.put("/back/time/submit3", {
+            // const res3 = await axios.put(
+            //   "http://localhost:3000/back/time/submit3",
+            //   {
+            username: name,
+            id: totalid,
+            hour: hour1,
+            minute: minute1,
+            second: second1 + 1,
+          }
+          );
+        }
 
         const res4 = await axiosInstance.put("/back/time/submit4", {
           // const res4 = await axios.put(
