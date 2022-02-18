@@ -165,6 +165,9 @@ overflow-x:hidden;
         font-family: 'Jua', sans-serif;
         font-size: 1.6rem;
     }
+    .track{
+        display: hidden;
+    }
     .topCenter{
         flex:10;
         display: flex;
@@ -173,7 +176,7 @@ overflow-x:hidden;
         color: black;
         font-family: 'Jua', sans-serif;
         font-size: 2rem;
-        margin-right: 10vw;
+        margin-right: 2.4vw;
     }
     .btnLeft{
         margin-left: 5rem;

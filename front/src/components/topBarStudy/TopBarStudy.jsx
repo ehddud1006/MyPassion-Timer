@@ -14,12 +14,12 @@ function TopBarStudy({ category }) {
         </div>
         <div className="topCenter">열정의 시간</div>
         <div className="topRight">
-          {/* <Link
-                        to="/signIn"
-                        className="btn btnRight"
-                    >
-                        제출하기
-                    </Link> */}
+          <div
+            to="/signIn"
+            className="btn btnRight track"
+          >
+            제출하기
+          </div>
         </div>
       </div>
       {/* <div className="dateType">
