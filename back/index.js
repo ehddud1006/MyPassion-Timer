@@ -33,6 +33,28 @@ app.use(express.static("build"));
 app.get("/*", function (req, res) {
   res.sendFile(__dirname + "/build/index.html");
 });
+
+var cron = require('node-cron');
+
+cron.schedule('* * * * *', function () {
+  async (req, res) => {
+    var username = req.body.username;
+    // console.log(req.body);
+    // console.log("plz");
+    try {
+      var tt;
+      tt = await WeekTime.updateMany(
+        {},
+        { $set: { hour: 0, minute: 0, second: 0 } }
+      );
+      console.log(tt);
+      res.status(200).json(tt);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+  console.log('node-cron 실행 테스트');
+});
 // const multer = require("multer")
 // const storage = multer.diskStorage({
 //     destination: (req, file, cb) => {
