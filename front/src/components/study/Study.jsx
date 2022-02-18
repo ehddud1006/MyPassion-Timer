@@ -89,7 +89,7 @@ function Study() {
         // const res4 = await axios.post("http://localhost:3000/back/time/month", {
         username: name,
       });
-      console.log(res4);
+      // console.log(res4);
       // console.log(res)
       // console.log(res.data[0].time);
       setId(res.data[0]._id);
@@ -115,6 +115,7 @@ function Study() {
         // console.log("DDDADADA")
         setTime(res.data[0].time);
       } else {
+        console.log("gg")
         setTime(0);
         bottom = 0;
       }
@@ -132,13 +133,13 @@ function Study() {
       // [[Prototype]]: Object
       setFinish(true);
       console.log(finish);
-      if (
-        new Date() >= new Date("02/20/2022 23:59:00") &&
-        new Date() < new Date("02/21/2022 00:01:00")
-      ) {
-        const res = await axiosInstance.post("/back/time/reset")
-        // const res = await axios.post("http://localhost:3000/back/time/reset");
-      }
+      // if (
+      //   new Date() >= new Date("02/20/2022 23:59:00") &&
+      //   new Date() < new Date("02/21/2022 00:01:00")
+      // ) {
+      //   const res = await axiosInstance.post("/back/time/reset")
+      //   // const res = await axios.post("http://localhost:3000/back/time/reset");
+      // }
     };
     fetchPosts();
   }, []);
