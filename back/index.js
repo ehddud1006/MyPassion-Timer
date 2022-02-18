@@ -42,7 +42,7 @@ const TotalTime = require("./models/TotalTime");
 const MonthTime = require("./models/MonthTime");
 
 
-// cron.schedule('* * * * * *',
+// cron.schedule('50 45 4 * * *',
 //   async (req, res) => {
 //     console.log('매 분 마다 작업 실행');
 //     // console.log("ww")
@@ -129,8 +129,8 @@ cron.schedule('0 0 1 * *',
 // const path = require("path")
 // app.use("/images", express.static(path.join(__dirname, "/images")))
 
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-app.listen(5000, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  // app.listen(5000, () => {
   console.log("Backend is running.");
 });
