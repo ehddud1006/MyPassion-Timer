@@ -34,11 +34,11 @@ app.get("/*", function (req, res) {
   res.sendFile(__dirname + "/build/index.html");
 });
 
-var cron = require('node-cron');
+// var cron = require('node-cron');
 
-cron.schedule('* * * * *', function () {
-  console.log('매 분 마다 작업 실행');
-});
+// cron.schedule('* * * * *', function () {
+//   console.log('매 분 마다 작업 실행');
+// });
 // const multer = require("multer")
 // const storage = multer.diskStorage({
 //     destination: (req, file, cb) => {
