@@ -27,7 +27,7 @@ function Mypage() {
     }
     useEffect(() => {
         const fetchPosts = async () => {
-            const res = await axiosInstance.get("/back/time/motto", {
+            const res = await axiosInstance.post("/back/time/motto", {
                 // const res = await axios.post("http://localhost:3000/back/time/motto", {
                 username: name,
             });
