@@ -15,7 +15,6 @@ function TopBarStudy({ category }) {
         <div className="topCenter">열정의 시간</div>
         <div className="topRight">
           <div
-            to="/signIn"
             className="btn btnRight track"
           >
             제출하기
