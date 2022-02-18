@@ -21,6 +21,7 @@ function getCurrentDate() {
   return new Date(Date.UTC(year, month, today, 14, 59, 59, milliseconds));
 }
 var deadline = getCurrentDate();
+console.log(deadline)
 var current = new Date();
 console.log("2");
 // 윗부분은 한번만 실행이 된다.
@@ -100,27 +101,26 @@ function Study() {
       bottom = res.data[0].time;
       console.log(new Date());
       console.log(current);
-      console.log(new Date(res.data[0].updatedAt).toDateString())
-      console.log(new Date(a.getTime() - KR_TIME_DIFF).toDateString())
       // console.log(getCurrentDate() - new Date())
       // console.log(res.data[0].updatedAt);
       // console.log(getCurrentDate() - res.data[0].updatedAt)
       // console.log(new Date(res.data[0].updatedAt).toDateString());
       // console.log(new Date().toDateString());
       // console.log(getCurrentDate().toDateString());
-      var KR_TIME_DIFF = 9 * 60 * 60 * 1000;
-      var a = new Date();
-      if (
-        new Date(res.data[0].updatedAt).toDateString() ===
-        new Date(a.getTime() - KR_TIME_DIFF).toDateString()
-      ) {
-        // console.log("DDDADADA")
-        setTime(res.data[0].time);
-      } else {
-        console.log("gg")
-        setTime(0);
-        bottom = 0;
-      }
+      // var KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+      // var a = new Date();
+      // if (
+      //   new Date(res.data[0].updatedAt).toDateString() ===
+      //   new Date(a.getTime() - KR_TIME_DIFF).toDateString()
+      // ) {
+      //   // console.log("DDDADADA")
+      setTime(res.data[0].time);
+      //   setTime(res.data[0].time);
+      // } else {
+      //   console.log("gg")
+      //   setTime(0);
+      //   bottom = 0;
+      // }
       //   console.log("plz" + total_studied);
       //   console.log(time);
       // console.log(res)
