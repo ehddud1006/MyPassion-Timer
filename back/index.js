@@ -40,7 +40,7 @@ const Time = require("./models/Time");
 const WeekTime = require("./models/WeekTime");
 const TotalTime = require("./models/TotalTime");
 const MonthTime = require("./models/MonthTime");
-cron.schedule('0 0 0 ? * *',
+cron.schedule('0 0 * * *',
   async (req, res) => {
     // console.log('매 분 마다 작업 실행');
     // console.log("ww")
@@ -68,7 +68,7 @@ cron.schedule('0 0 * * 1',
     console.log(tt2);
   });
 
-cron.schedule('30 59 23 L * ?',
+cron.schedule('0 0 1 * *',
   async (req, res) => {
     // console.log('매 분 마다 작업 실행');
     // console.log("ww")
