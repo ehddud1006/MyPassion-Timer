@@ -18,12 +18,15 @@ function getCurrentDate() {
   var minutes = date.getMinutes();
   var seconds = date.getSeconds();
   var milliseconds = date.getMilliseconds();
-  return new Date(Date.UTC(year, month, today, 14, 59, 59, milliseconds));
+  return new Date(Date.UTC(year, month, today, 15, 59, 59, milliseconds));
 }
 var deadline = getCurrentDate();
 console.log(deadline)
 var current = new Date();
+var currentMonth = current.getMonth();
+var currentDay = current.getDay();
 console.log(deadline - current)
+console.log(current - deadline)
 console.log("2");
 // 윗부분은 한번만 실행이 된다.
 // fuction Study()는 여러번 실행 된다.
@@ -175,6 +178,15 @@ function Study() {
           ((top - bottom) % (1000 * 60 * 60)) / (1000 * 60)
         );
         var second = Math.floor(((top - bottom) % (1000 * 60)) / 1000);
+
+        var hour1 = Math.floor(
+          ((top - bottom) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minute1 = Math.floor(
+          ((top - bottom) % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        var second1 = Math.floor(((top - bottom) % (1000 * 60)) / 1000);
+
         console.log(hour);
         console.log(minute);
         console.log(second);

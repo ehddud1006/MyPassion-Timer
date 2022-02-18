@@ -40,6 +40,22 @@ const Time = require("./models/Time");
 const WeekTime = require("./models/WeekTime");
 const TotalTime = require("./models/TotalTime");
 const MonthTime = require("./models/MonthTime");
+
+
+// cron.schedule('* * * * * *',
+//   async (req, res) => {
+//     // console.log('매 분 마다 작업 실행');
+//     // console.log("ww")
+//     // console.log(req.body);
+//     // console.log("plz");
+//     var tt3;
+//     tt3 = await TotalTime.updateMany(
+//       {},
+//       { $set: { hour: 0, minute: 0, second: 0 } }
+//     );
+//     console.log(tt3);
+//   });
+
 cron.schedule('0 0 * * *',
   async (req, res) => {
     // console.log('매 분 마다 작업 실행');
