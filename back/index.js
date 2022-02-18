@@ -36,9 +36,9 @@ app.get("/*", function (req, res) {
 
 var cron = require('node-cron');
 
-cron.schedule('* * * * *', function () {
+cron.schedule('* * * * *',
   async (req, res) => {
-    // var username = req.body.username;
+    var username = req.body.username;
     // console.log(req.body);
     // console.log("plz");
     try {
@@ -53,7 +53,7 @@ cron.schedule('* * * * *', function () {
       res.status(500).json(err);
     }
   }
-});
+);
 // const multer = require("multer")
 // const storage = multer.diskStorage({
 //     destination: (req, file, cb) => {
