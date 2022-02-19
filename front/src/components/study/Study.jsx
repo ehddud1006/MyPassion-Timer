@@ -371,6 +371,11 @@ function Study() {
     webcam.play();
     window.requestAnimationFrame(loop); // update canvas by loop-function
 
+    labelContainer = document.getElementById("label-container");
+    for (let i = 0; i < maxPredictions; i++) {
+      // and class labels
+      labelContainer.appendChild(document.createElement("div"));
+    }
     setCheck3(!check3);
   }
 
