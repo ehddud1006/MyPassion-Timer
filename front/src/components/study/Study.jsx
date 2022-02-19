@@ -351,12 +351,12 @@ function Study() {
 
     // convenience function to setup a webcam
     const flip = true; // whether to flip the webcam
-    let webcam = new tmImage.webcam(1800, 800, flip);// width, height, flip
+    webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
     await webcam.setup({ facingMode: "environment" }); // use "user" to use front-cam on mobile phones
 
     // append elements to the DOM --> **before starting the webcam**
     // document.getElementById('webcam-container').appendChild(webcam.canvas); // just in case you want to use specifically the canvas
-    document.getElementById('webcam-container').appendChild(webcam.webcam); // webcam object needs to be added in any case to make this work on iOS
+    document.getElementById('webcam-container').appendChild(webcam.canvas); // webcam object needs to be added in any case to make this work on iOS
 
     // grab video-object in any way you want and set the attributes --> **"muted" and "playsinline"**
     let wc = document.getElementsByTagName('video')[0];
