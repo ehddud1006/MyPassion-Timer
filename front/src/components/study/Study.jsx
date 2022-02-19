@@ -396,7 +396,7 @@ function Study() {
     }
     // console.log("5")
     // predict can take in an image, video or canvas html element
-    const prediction = await model.predict(webcam.canvas);
+    const prediction = await model.predict(webcam.webcam);
 
     var cur_t = new Date();
     var diff_t = cur_t.getTime() - prev_time.getTime();
