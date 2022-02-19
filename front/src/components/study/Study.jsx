@@ -357,7 +357,7 @@ function Study() {
     // append elements to the DOM --> **before starting the webcam**
     // document.getElementById('webcam-container').appendChild(webcam.canvas); // just in case you want to use specifically the canvas
     document.getElementById('webcam-container').appendChild(webcam.canvas); // webcam object needs to be added in any case to make this work on iOS
-
+    //dadaad
     // grab video-object in any way you want and set the attributes --> **"muted" and "playsinline"**
     let wc = document.getElementsByTagName('video')[0];
     wc.setAttribute("playsinline", true); // written with "setAttribute" bc. iOS buggs otherwise :-)
