@@ -354,7 +354,7 @@ function Study() {
 
     // convenience function to setup a webcam
     const flip = false; // whether to flip the webcam
-    webcam = new tmImage.Webcam(180, 100, flip); // width, height, flip
+    webcam = new tmImage.Webcam(200, 150, flip); // width, height, flip
     await webcam.setup({ facingMode: "user" }); // use "user" to use front-cam on mobile phones
 
     // append elements to the DOM --> **before starting the webcam**
