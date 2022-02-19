@@ -61,7 +61,7 @@ const MonthTime = require("./models/MonthTime");
 // console.log(a)
 // console.log(a.getDay())
 // cron.schedule('41 4 * * 6',
-cron.schedule('9 0 * * *',
+cron.schedule('13 0 * * *',
   async (req, res) => {
     console.log('매 분 마다 작업 실행');
     // console.log("ww")
