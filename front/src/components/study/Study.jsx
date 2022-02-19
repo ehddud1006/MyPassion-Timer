@@ -446,10 +446,10 @@ function Study() {
     <div>
       {finish ? (
         <div className="passion">
-          <div>공부하기싫을때, 남들도 하기싫다.</div>
-          <div>그때하는 것이 경쟁력이다.</div>
-          <div id="webcam-container"></div>
-          <div id="label-container"></div>
+          {/* <div>공부 시간!</div> */}
+          <div className="nn">공부 시간!</div>
+          <div id="webcam-container" className="ti"></div>
+          <div id="label-container" className="ti"></div>
           <div className="btngroup">
             {check ? (
               <button type="button" onClick={init}>

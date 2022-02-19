@@ -6,19 +6,15 @@ function TopBarStudy({ category }) {
   // console.log(category)
   return (
     <>
-      <div className="top">
+      <div className="top top2">
         <div className="topLeft">
-          <Link to="/" className="btn btnLeft">
+          <Link to="/" className="btn btnLeft btno">
             메인화면
           </Link>
         </div>
-        <div className="topCenter">열정의 시간</div>
+        <div className="topCenter">공부 시간</div>
         <div className="topRight">
-          <div
-            className="btn btnRight track"
-          >
-            제출하기
-          </div>
+          <div className="btn btnRight track">제출하기</div>
         </div>
       </div>
       {/* <div className="dateType">

@@ -1,81 +1,157 @@
 html,
-body{
-width:100%;
-overflow-x:hidden;
+body {
+  width: 100%;
+  overflow-x: hidden;
 }
-.passion{
+.passion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 35%;
+  height: 500px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  margin: 3em auto;
+  border-radius: 1.5em;
+  box-shadow: 2px 2px 100px 2px rgba(240, 81, 7, 0.9);
+}
+.nn {
+  font-family: "Jua", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+.ti {
+  font-family: "Jua", sans-serif;
+  margin-top: 10px;
+}
+button {
+  display: flex;
+  background-color: white;
+  text-decoration: none;
+  color: #df5a32;
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-family: "Jua", sans-serif;
+  margin-top: 10px;
+}
+
+.btngroup {
+  display: flex;
+}
+@media screen and (max-width: 1200px) {
+  .passion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 500px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    margin: 3em auto;
+    border-radius: 1.5em;
+    box-shadow: 2px 2px 100px 2px rgba(240, 81, 7, 0.9);
+  }
+  button {
+    display: flex;
+    background-color: white;
+    text-decoration: none;
+    color: #df5a32;
+    width: 100px;
+    height: 50px;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-family: "Jua", sans-serif;
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .passion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+    height: 500px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    margin: 3em auto;
+    border-radius: 1.5em;
+    box-shadow: 2px 2px 100px 2px rgba(240, 81, 7, 0.9);
+  }
+  button {
+    display: flex;
+    background-color: white;
+    text-decoration: none;
+    color: #df5a32;
+    width: 100px;
+    height: 50px;
+    font-size: 0.8rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .nn {
+    font-family: "Jua", sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
+  .ti {
+    font-family: "Jua", sans-serif;
+    margin-top: 10px;
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .passion {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    height: 600px;
-    font-family: 'Noto Sans KR', sans-serif;
+    height: 500px;
+    font-family: "Noto Sans KR", sans-serif;
     font-weight: 500;
     font-size: 30px;
-}
-
-button{
+    margin: 3em auto;
+    border-radius: 0.5em;
+    box-shadow: 2px 2px 100px 2px rgba(240, 81, 7, 0.9);
+  }
+  button {
     display: flex;
-     background-color: white;
-     text-decoration: none;
-     color: #3A83BB;
-     width: 100px;
-     height: 50px;
-    font-size: 20px;
-     align-items: center;
+    background-color: white;
+    text-decoration: none;
+    color: #df5a32;
+    width: 100px;
+    height: 50px;
+    font-size: 0.8rem;
+    align-items: center;
     justify-content: center;
-    border-radius: 10px;
-}
+  }
+  .nn {
+    font-family: "Jua", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  .ti {
+    font-family: "Jua", sans-serif;
+    margin-top: 10px;
+    font-size: 14px;
+  }
 
-.btngroup{
+  .btngroup {
     display: flex;
-}
-
-@media screen and (max-width:1000px){
-    
-    button{
-        display: flex;
-         background-color: white;
-         text-decoration: none;
-         color: #3A83BB;
-         width: 100px;
-         height: 50px;
-        font-size: 0.8rem;
-         align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-    }
-    
-    
-}
-@media screen and (max-width:500px){
-    .passion{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
-        height: 600px;
-        font-family: 'Noto Sans KR', sans-serif;
-        font-weight: 500;
-        font-size: 1.2rem;
-    }
-    
-    button{
-        display: flex;
-         background-color: white;
-         text-decoration: none;
-         color: #3A83BB;
-         width: 100px;
-         height: 50px;
-        font-size: 16px;
-         align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-    }
-    
-    .btngroup{
-        display: flex;
-    }
+  }
 }
