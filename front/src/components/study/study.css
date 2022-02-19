@@ -86,8 +86,8 @@ button {
 }
 @media screen and (max-width: 1024px) {
     #webcamVideo{
-        width: 200px;
-        height: 150px;
+        width: 400px;
+        height: 200px;
     }
   .passion {
     display: flex;
@@ -128,8 +128,8 @@ button {
 }
 @media screen and (max-width: 500px) {
     #webcamVideo{
-        width: 200px;
-        height: 150px;
+        width: 400px;
+        height: 200px;
     }
   .passion {
     display: flex;
