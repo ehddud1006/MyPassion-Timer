@@ -335,7 +335,7 @@ function Study() {
     // setHelp(1);
     // console.log("help")
     setCheck(!check);
-    setCheck3(!check3);
+
     // console.log(check);
     // console.log("total" + total_studied);
     const modelURL = URL + "model.json";
@@ -365,6 +365,7 @@ function Study() {
       // and class labels
       labelContainer.appendChild(document.createElement("div"));
     }
+    setCheck3(!check3);
   }
 
   async function loop() {
