@@ -2,7 +2,7 @@ import React from "react";
 import "./topBar.css";
 import { Link } from "react-router-dom";
 import $ from "jquery";
-import {} from "jquery.cookie";
+import { } from "jquery.cookie";
 import axios from "axios";
 
 function TopBar({ category }) {
@@ -22,7 +22,7 @@ function TopBar({ category }) {
               공부하기
             </Link>
           ) : (
-            <div></div>
+            <div className="btn btnLeft"></div>
           )}
         </div>
         <div className="topCenter">동영타 {category} 랭킹</div>

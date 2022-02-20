@@ -22,7 +22,7 @@ function TopBarMy() {
                             공부하기
                         </Link>
                     ) : (
-                        <div></div>
+                        <div className="btn btnLeft"></div>
                     )}
                 </div>
                 <div className="topCenter">마이페이지</div>

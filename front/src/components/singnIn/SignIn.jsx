@@ -130,11 +130,11 @@ function SignIn() {
           onSubmit={onSubmit1}
           className={on ? signins.loginPage__form__registerForm : ""}
         >
-          <input type="text" onChange={onChangeUsername} placeholder="name" />
+          <input type="text" onChange={onChangeUsername} placeholder="ID" />
           <input
             type="password"
             onChange={onChangePassword}
-            placeholder="password"
+            placeholder="Password"
           />
           <input
             type="text"
@@ -163,12 +163,12 @@ function SignIn() {
           <input
             type="text"
             onChange={onChangeUsername}
-            placeholder="username"
+            placeholder="ID"
           />
           <input
             type="password"
             onChange={onChangePassword}
-            placeholder="password"
+            placeholder="Password"
           />
           <button type="submit">login</button>
           <p className={signins.message}>

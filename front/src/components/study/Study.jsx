@@ -192,7 +192,7 @@ function Study() {
           time: top,
           hour: hour,
           minute: minute,
-          second: second + 1,
+          second: second,
         });
         const res2 = await axiosInstance.put("/back/time/submit2", {
           // const res2 = await axios.put(
@@ -202,7 +202,7 @@ function Study() {
           id: weekid,
           hour: hour,
           minute: minute,
-          second: second + 1,
+          second: second,
         }
         );
         const res3 = await axiosInstance.put("/back/time/submit3", {
@@ -213,7 +213,7 @@ function Study() {
           id: totalid,
           hour: hour,
           minute: minute,
-          second: second + 1,
+          second: second,
         }
         );
 
@@ -225,7 +225,7 @@ function Study() {
           id: monthid,
           hour: hour,
           minute: minute,
-          second: second + 1,
+          second: second,
         }
         );
         //   console.log(res);
@@ -257,7 +257,7 @@ function Study() {
           time: after12,
           hour: hour1,
           minute: minute1,
-          second: second1 + 1,
+          second: second1,
         });
         //   console.log(res);
         // window.location.href = "/";
@@ -270,7 +270,7 @@ function Study() {
             id: weekid,
             hour: hour,
             minute: minute,
-            second: second + 1,
+            second: second,
           }
           );
         }
@@ -283,7 +283,7 @@ function Study() {
             id: weekid,
             hour: hour1,
             minute: minute1,
-            second: second1 + 1,
+            second: second1,
           }
           );
         }
@@ -296,7 +296,7 @@ function Study() {
             id: totalid,
             hour: hour,
             minute: minute,
-            second: second + 1,
+            second: second,
           }
           );
         }
@@ -309,7 +309,7 @@ function Study() {
             id: totalid,
             hour: hour1,
             minute: minute1,
-            second: second1 + 1,
+            second: second1,
           }
           );
         }
@@ -322,7 +322,7 @@ function Study() {
           id: monthid,
           hour: hour,
           minute: minute,
-          second: second + 1,
+          second: second,
         }
         );
         window.location.href = "/";
