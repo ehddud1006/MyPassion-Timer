@@ -121,7 +121,7 @@ body {
   margin-right: 10rem;
 }
 
-.btn_invisible{
+.btninvisible{
     background-color: #3a83bb;
 }
 /* 
@@ -211,7 +211,7 @@ body {
     color: #df5a32;
   }
 
-  .btn_invisible{
+  .btninvisible{
     background-color: #3a83bb;
 }
 }
@@ -329,8 +329,7 @@ body {
   .btno {
     color: #df5a32;
   }
-
-  .btn_invisible{
+  .btninvisible{
     background-color: #3a83bb;
 }
 }
