@@ -288,25 +288,25 @@ body {
 
 .bottomIcon1 {
   padding-left: 4px;
-  color: rgb(189, 189, 189);
+  color: rgb(155, 155, 155);
   cursor: pointer;
 }
 
 .bottomIcon2 {
   padding-left: 3px;
-  color: rgb(189, 189, 189);
+  color: rgb(155, 155, 155);
   cursor: pointer;
 }
 
 .bottomIcon3 {
   padding-left: 20px;
-  color: rgb(189, 189, 189);
+  color: rgb(155, 155, 155);
   cursor: pointer;
 }
 .bottomText {
   font-size: 12px;
   font-family: "Noto Sans KR", sans-serif;
-  color: rgb(189, 189, 189);
+  color: rgb(155, 155, 155);
   cursor: pointer;
 }
 
@@ -623,20 +623,20 @@ body {
 
   .bottomIcon1 {
     padding-left: 4px;
-    color: gray;
+    color: rgb(155, 155, 155);
     cursor: pointer;
   }
 
   .bottomIcon2 {
     padding-left: 3px;
-    color: gray;
+    color: rgb(155, 155, 155);
     cursor: pointer;
   }
 
   .bottomText {
     font-size: 12px;
     font-family: "Noto Sans KR", sans-serif;
-    color: gray;
+    color: rgb(155, 155, 155);
     cursor: pointer;
   }
 
