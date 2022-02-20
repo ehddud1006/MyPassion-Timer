@@ -120,6 +120,10 @@ body {
 .btnRight {
   margin-right: 10rem;
 }
+
+.btn_invisible{
+    background-color: #3a83bb;
+}
 /* 
  .btn2{
     display: flex;

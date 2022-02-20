@@ -22,7 +22,7 @@ function TopBar({ category }) {
               공부하기
             </Link>
           ) : (
-            <div className="btn btnLeft"></div>
+            <div className="btn btnLeft btn_invisible"></div>
           )}
         </div>
         <div className="topCenter">동영타 {category} 랭킹</div>
