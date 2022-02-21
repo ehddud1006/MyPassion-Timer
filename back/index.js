@@ -61,8 +61,9 @@ const MonthTime = require("./models/MonthTime");
 // console.log(a)
 // console.log(a.getDay())
 // cron.schedule('41 4 * * 6',
-// cron.schedule('* 59 14 * * *',
-cron.schedule('* 22 14 * * *',
+
+// cron.schedule('* 22 14 * * *',
+cron.schedule('* 59 14 * * *',
   async (req, res) => {
     console.log('매 분 마다 작업 실행');
     // console.log("ww")
@@ -76,8 +77,9 @@ cron.schedule('* 22 14 * * *',
     console.log(tt1);
   });
 
-// cron.schedule('* 59 14 * * 0',
-cron.schedule('* 22 5 * * 1',
+
+// cron.schedule('* 22 5 * * 1',
+cron.schedule('* 59 14 * * 0',
   async (req, res) => {
     // console.log('매 분 마다 작업 실행');
     // console.log("ww")
@@ -91,8 +93,9 @@ cron.schedule('* 22 5 * * 1',
     console.log(tt2);
   });
 
-// cron.schedule('* 0 0 1 * *',
-cron.schedule('* 28 5 21 2 *',
+
+// cron.schedule('* 28 5 21 2 *',
+cron.schedule('* 59 14 28 2 *',
   async (req, res) => {
     // console.log('매 분 마다 작업 실행');
     // console.log("ww")
