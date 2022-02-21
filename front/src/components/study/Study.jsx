@@ -261,20 +261,8 @@ function Study() {
         });
         //   console.log(res);
         // window.location.href = "/";
-        if (currentDay == key.getDay()) {
-          const res2 = await axiosInstance.put("/back/time/submit2", {
-            // const res2 = await axios.put(
-            //   "http://localhost:3000/back/time/submit2",
-            //   {
-            username: name,
-            id: weekid,
-            hour: hour,
-            minute: minute,
-            second: second,
-          }
-          );
-        }
-        else {
+
+        if (currentDay == 0 && currentDay != key.getDay()) {
           const res2 = await axiosInstance.put("/back/time/submit2", {
             // const res2 = await axios.put(
             //   "http://localhost:3000/back/time/submit2",
@@ -287,6 +275,21 @@ function Study() {
           }
           );
         }
+        // if (currentDay == key.getDay()) {
+        else {
+          const res2 = await axiosInstance.put("/back/time/submit2", {
+            // const res2 = await axios.put(
+            //   "http://localhost:3000/back/time/submit2",
+            //   {
+            username: name,
+            id: weekid,
+            hour: hour,
+            minute: minute,
+            second: second,
+          }
+          );
+        }
+
         if (currentMonth == key.getMonth()) {
           const res3 = await axiosInstance.put("/back/time/submit3", {
             // const res3 = await axios.put(

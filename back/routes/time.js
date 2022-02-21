@@ -167,18 +167,18 @@ router.put("/submit", async (req, res) => {
         goodH = time.hour + req.body.hour;
         goodM = time.minute + req.body.minute;
         goodS = time.second + req.body.second;
-
+        if (goodS >= 60) {
+          let a = parseInt(goodS / 60);
+          goodM += a;
+          goodS -= a * 60;
+        }
         if (goodM >= 60) {
           let a = parseInt(goodM / 60);
           goodH += a;
           goodM -= a * 60;
         }
 
-        if (goodS >= 60) {
-          let a = parseInt(goodS / 60);
-          goodM += a;
-          goodS -= a * 60;
-        }
+
         const updatedTime = await Time.findByIdAndUpdate(
           req.body.id,
           {
@@ -216,17 +216,18 @@ router.put("/submit2", async (req, res) => {
         goodM = weektime.minute + req.body.minute;
         goodS = weektime.second + req.body.second;
 
+        if (goodS >= 60) {
+          let a = parseInt(goodS / 60);
+          goodM += a;
+          goodS -= a * 60;
+        }
         if (goodM >= 60) {
           let a = parseInt(goodM / 60);
           goodH += a;
           goodM -= a * 60;
         }
 
-        if (goodS >= 60) {
-          let a = parseInt(goodS / 60);
-          goodM += a;
-          goodS -= a * 60;
-        }
+
         const updatedWeekTime = await WeekTime.findByIdAndUpdate(
           req.body.id,
           {
@@ -269,18 +270,18 @@ router.put("/submit3", async (req, res) => {
         goodH = totaltime.hour + req.body.hour;
         goodM = totaltime.minute + req.body.minute;
         goodS = totaltime.second + req.body.second;
-
+        if (goodS >= 60) {
+          let a = parseInt(goodS / 60);
+          goodM += a;
+          goodS -= a * 60;
+        }
         if (goodM >= 60) {
           let a = parseInt(goodM / 60);
           goodH += a;
           goodM -= a * 60;
         }
 
-        if (goodS >= 60) {
-          let a = parseInt(goodS / 60);
-          goodM += a;
-          goodS -= a * 60;
-        }
+
         const updatedtotalTime = await TotalTime.findByIdAndUpdate(
           req.body.id,
           {
@@ -323,18 +324,18 @@ router.put("/submit4", async (req, res) => {
         goodH = totaltime.hour + req.body.hour;
         goodM = totaltime.minute + req.body.minute;
         goodS = totaltime.second + req.body.second;
-
+        if (goodS >= 60) {
+          let a = parseInt(goodS / 60);
+          goodM += a;
+          goodS -= a * 60;
+        }
         if (goodM >= 60) {
           let a = parseInt(goodM / 60);
           goodH += a;
           goodM -= a * 60;
         }
 
-        if (goodS >= 60) {
-          let a = parseInt(goodS / 60);
-          goodM += a;
-          goodS -= a * 60;
-        }
+
         const updatedtotalTime = await MonthTime.findByIdAndUpdate(
           req.body.id,
           {
