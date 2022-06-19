@@ -1,6 +1,7 @@
 # MyPassion-Timer
 
 저의 첫 프로젝트 입니다.
+https://passion-timer.herokuapp.com/
 
 ## Summary
 
@@ -15,65 +16,24 @@
   
     웹 캠으로 정면에 사람을 감지하여 시간을 측정한다. 사람이 앞에 없다면 시간을 측정하지 않는다.
 
-### `npm start`
+## Feature
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **로그인 & 로그아웃**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **시간측정 & 기록저장 **
 
-### `npm test`
+- 공부 시간 측정 
+  
+  Google Teachable Machine 을 사용하여 현재 사용자의 상태를 웹캠으로 감지한다. 앞에 사람이 있다면 시간을 측정, 없다면 측정 하지 않는다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 기록 저장
 
-### `npm run build`
+  기록 저장 버튼을 누르면 측정한 공부시간이 서버에 저장된다.
+  
+3. **공부 랭킹**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+이용자의 시간을 등수를 매겨 알려줍니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1등을 기준으로 그래프가 그려져 내가 얼마나 공부했는지 시각화 합니다. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. **주간/월간/누적 랭킹**
