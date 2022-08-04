@@ -31,7 +31,7 @@ https://passion-timer.herokuapp.com/
 
 - 기록 저장
 
-  기록 저장 버튼을 누르면 측정한 공부시간이 서버에 저장된다.
+  기록 저장 버튼을 누르면 측정한 공부시간이 서버에 저장다.
   
      ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/62373865/174467368-08d6631b-92f7-476c-a1f4-9d86fb82212b.gif)
   
